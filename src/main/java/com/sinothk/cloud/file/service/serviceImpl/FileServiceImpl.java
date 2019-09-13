@@ -221,7 +221,9 @@ public class FileServiceImpl implements FileService {
                 // 原文件名
                 String oldFileName = multipartFile.getOriginalFilename();
                 // 新文件名
-                String fileLocName = username + "_" + getIdByDateTimeString() + oldFileName.substring(oldFileName.lastIndexOf("."));
+                String fileClass = oldFileName.substring(oldFileName.lastIndexOf("."));
+                String fileLocName = username + "_" + getIdByDateTimeString() + fileClass;
+
                 // 相对目录
                 String locPath = username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
 
@@ -229,23 +231,6 @@ public class FileServiceImpl implements FileService {
 
                 // 保存到硬件
                 FileManager.getInstance().saveFile(serverConfig.getVirtualPath(), locPath, fileLocName, multipartFile);
-
-                if (i == 0) {
-                    // 新增封面
-                    FileCoverEntity fileInfo = new FileCoverEntity();
-                    fileInfo.setFileCode(photoId);
-                    fileInfo.setFileOldName(oldFileName);
-                    fileInfo.setFileName(fileName);
-                    fileInfo.setFileLocName(fileLocName);
-                    fileInfo.setFileUrl(fileUrl);
-                    fileInfo.setFileSize(multipartFile.getSize());
-                    fileInfo.setCreateTime(currDate);
-                    fileInfo.setFileType(fileType);
-                    fileInfo.setOwnerUser(username);
-                    fileInfo.setBizType(bizType);
-
-                    fileCoverMapper.insert(fileInfo);
-                }
 
                 // 新增图片文件
                 FileEntity fileEntity = new FileEntity();
@@ -260,8 +245,27 @@ public class FileServiceImpl implements FileService {
                 fileEntity.setFileType(fileType);
                 fileEntity.setBizType(bizType);
                 fileMapper.insert(fileEntity);
-
                 fileEntities.add(fileEntity);
+
+                if (i == 0) {// 新增封面
+                    if (fileType.equals("IMAGE") && FileManager.getInstance().isImage(oldFileName)) {
+                        // 图片处理方式
+                        FileCoverEntity fileInfo = new FileCoverEntity();
+                        fileInfo.setFileCode(photoId);
+                        fileInfo.setFileOldName(oldFileName);
+                        fileInfo.setFileName(fileName);
+                        fileInfo.setFileLocName(fileLocName);
+                        fileInfo.setFileUrl(fileUrl);
+                        fileInfo.setFileSize(multipartFile.getSize());
+                        fileInfo.setCreateTime(currDate);
+                        fileInfo.setFileType(fileType);
+                        fileInfo.setOwnerUser(username);
+                        fileInfo.setBizType(bizType);
+
+                        fileCoverMapper.insert(fileInfo);
+                    }
+
+                }
             }
 
             return fileEntities;
@@ -272,6 +276,11 @@ public class FileServiceImpl implements FileService {
             }
             return null;
         }
+    }
+
+    @Override
+    public ArrayList<FileEntity> saveLinux(MultipartFile[] files, String username, String fileType, String fileName, String bizType) {
+        return null;
     }
 
     public static String getIdByDateTimeString() {

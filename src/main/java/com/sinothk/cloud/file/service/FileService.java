@@ -10,8 +10,6 @@ import java.util.List;
 
 public interface FileService {
 
-//    ResultData<FileEntity> addFiles(FileEntity fileEntity, MultipartFile[] fileList);
-
     ResultData<Boolean> delFile(String id);
 
     ResultData<Boolean> delFileByFileCode8Owner(FileEntity fileCode);
@@ -24,4 +22,5 @@ public interface FileService {
 
     ArrayList<FileEntity> save(MultipartFile[] files, String username, String fileType, String fileName, String bizType);
 
+    ArrayList<FileEntity> saveLinux(MultipartFile[] files, String username, String fileType, String fileName, String bizType);
 }

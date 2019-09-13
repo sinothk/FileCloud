@@ -39,7 +39,7 @@ public class FileController {
         }
 
         FileEntity fileEntity = new FileEntity();//JSON.parseObject(fileInfo, FileEntity.class);
-        fileEntity.setOwnerUser("liangyt");
+        fileEntity.setOwnerUser("oo");
         fileEntity.setFileType("Img");
         fileEntity.setFileName("hello.png");
         fileEntity.setBizType("user_avatar");
@@ -80,7 +80,7 @@ public class FileController {
         return fileService.delFileByFileCode8Owner(fileEntity);
     }
 
-    @ApiOperation(value = "查找业务文件", notes = "查找业务文件")
+    @ApiOperation(value = "查找：业务文件", notes = "查找：业务文件")
     @GetMapping("/findFilesByFileCode")
     public ResultData<List<FileEntity>> findFilesByFileCode(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
@@ -93,7 +93,7 @@ public class FileController {
         return fileService.findFileByFileCodeAndOwner(fileEntity);
     }
 
-    @ApiOperation(value = "查找单个业务封面文件", notes = "查找单个业务封面文件")
+    @ApiOperation(value = "查找：单个业务封面文件", notes = "查找：单个业务封面文件")
     @GetMapping("/findFileCover")
     public ResultData<FileCoverEntity> findFileCover(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
@@ -105,7 +105,7 @@ public class FileController {
         return fileService.findFileCover(fileEntity);
     }
 
-    @ApiOperation(value = "查找用户的业务封面文件", notes = "查找用户的业务封面文件")
+    @ApiOperation(value = "查找：用户的业务封面文件", notes = "查找：用户的业务封面文件")
     @GetMapping("/findFileCoverByOwner")
     public ResultData<List<FileCoverEntity>> findFileCoverByOwner(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token) {

@@ -30,7 +30,7 @@ public class FileManager {
      * @return
      * @throws IOException
      */
-    public void saveFile(String virtualPath, String locPath, String fileNewName, MultipartFile file){
+    public void saveFile(String virtualPath, String locPath, String fileNewName, MultipartFile file) {
         if (file.isEmpty()) {
             return;
         }
@@ -62,5 +62,18 @@ public class FileManager {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    public boolean isImage(String fileName) {
+        if (fileName.contains("png")
+                || fileName.contains("PNG")
+                || fileName.contains("jpg")
+                || fileName.contains("JPG")
+                || fileName.contains("jpeg")
+                || fileName.contains("JPEG")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
