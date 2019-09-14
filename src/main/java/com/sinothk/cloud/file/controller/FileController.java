@@ -5,6 +5,7 @@ import com.sinothk.base.utils.JWTUtil;
 import com.sinothk.base.utils.StringUtil;
 import com.sinothk.cloud.file.domain.FileCoverEntity;
 import com.sinothk.cloud.file.domain.FileEntity;
+import com.sinothk.cloud.file.inters.TokenCheck;
 import com.sinothk.cloud.file.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +25,38 @@ public class FileController {
 
     @Resource(name = "fileService")
     private FileService fileService;
+
+    @ApiOperation(value = "新增：保存图片文件(Linux)", notes = "新增：保存图片文件(Linux)")
+    @PostMapping("/addLinux")
+    @TokenCheck
+    public ResultData<ArrayList<FileEntity>> addLinux(
+            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
+            @ApiParam(value = "文件业务类型", required = true) @RequestParam("bizType") String bizType,
+            @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
+        //http://192.168.124.12:7000/file/addLinux
+
+        if (fileList == null || fileList.length == 0) {
+            return ResultData.error("文件对象不能为空");
+        }
+
+        if (StringUtil.isEmpty(bizType)) {
+            return ResultData.error("未填写文件业务类型");
+        }
+
+        FileEntity fileEntity = new FileEntity();
+        fileEntity.setOwnerUser("oo");
+        fileEntity.setFileType("Img");
+        fileEntity.setFileName("hello.png");
+        fileEntity.setBizType("user_avatar");
+
+        ArrayList<FileEntity> fileEntities = new ArrayList<>() ;//fileService.save(fileList, fileEntity.getOwnerUser(), fileEntity.getFileType(), fileEntity.getFileName(), fileEntity.getBizType());
+        if (fileEntities == null) {
+            return ResultData.error("文件新增失败");
+        } else {
+            return ResultData.success(fileEntities);
+        }
+    }
+
 
     @ApiOperation(value = "新增：保存文件", notes = "新增文件")
     @PostMapping("/add")
