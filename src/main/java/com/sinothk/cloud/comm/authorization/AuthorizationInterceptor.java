@@ -1,8 +1,8 @@
 package com.sinothk.cloud.comm.authorization;
 
+import com.sinothk.base.keyValue.ErrorCode;
 import com.sinothk.base.utils.TokenUtil;
 import com.sinothk.cloud.comm.exceptions.NormalException;
-import com.sinothk.cloud.file.domain.ErrorCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.HandlerMethod;

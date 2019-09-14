@@ -1,6 +1,6 @@
 package com.sinothk.cloud.comm.exceptions;
 
-import com.sinothk.cloud.file.domain.ErrorCode;
+import com.sinothk.base.keyValue.ErrorCode;
 
 public class NormalException extends RuntimeException {
 
@@ -9,7 +9,7 @@ public class NormalException extends RuntimeException {
 
     public NormalException(int code) {
         this.code = code;
-        msg = ErrorCode.getValue(code);
+        msg = ErrorCode.getErrorMsg(code);
     }
 
     public int getCode() {

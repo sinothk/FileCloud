@@ -3,6 +3,7 @@ package com.sinothk.cloud.file.controller;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.base.utils.JWTUtil;
 import com.sinothk.base.utils.StringUtil;
+import com.sinothk.base.utils.TokenUtil;
 import com.sinothk.cloud.file.domain.FileCoverEntity;
 import com.sinothk.cloud.file.domain.FileEntity;
 import com.sinothk.cloud.comm.authorization.TokenCheck;
@@ -49,7 +50,7 @@ public class FileController {
         fileEntity.setFileName("hello.png");
         fileEntity.setBizType("user_avatar");
 
-        ArrayList<FileEntity> fileEntities = new ArrayList<>() ;//fileService.save(fileList, fileEntity.getOwnerUser(), fileEntity.getFileType(), fileEntity.getFileName(), fileEntity.getBizType());
+        ArrayList<FileEntity> fileEntities = new ArrayList<>();//fileService.save(fileList, fileEntity.getOwnerUser(), fileEntity.getFileType(), fileEntity.getFileName(), fileEntity.getBizType());
         if (fileEntities == null) {
             return ResultData.error("文件新增失败");
         } else {
@@ -60,6 +61,7 @@ public class FileController {
 
     @ApiOperation(value = "新增：保存文件", notes = "新增文件")
     @PostMapping("/add")
+    @TokenCheck
     public ResultData<ArrayList<FileEntity>> add(@ApiParam(value = "文件信息", required = true) @RequestParam("fileInfo") String fileInfo,
                                                  @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
         //http://192.168.124.12:10002/file/add
@@ -88,6 +90,7 @@ public class FileController {
 
     @ApiOperation(value = "删除：根据Id删除文件", notes = "删除文件")
     @DeleteMapping("/delById/{id}")
+    @TokenCheck
     public ResultData<Boolean> delFileById(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @PathVariable String id) {
@@ -100,6 +103,7 @@ public class FileController {
     @ApiOperation(value = "删除：根据fileCode删除业务文件", notes = "删除业务文件")
     @DeleteMapping("/delByCode/{fileCode}")
     @Transactional// 事务回滚
+    @TokenCheck
     public ResultData<Boolean> delFileByFileCode(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @ApiParam(value = "fileCode", required = true) @PathVariable String fileCode) {
@@ -115,6 +119,7 @@ public class FileController {
 
     @ApiOperation(value = "查找：业务文件", notes = "查找：业务文件")
     @GetMapping("/findFilesByFileCode")
+    @TokenCheck
     public ResultData<List<FileEntity>> findFilesByFileCode(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @RequestParam("fileCode") String fileCode) {
@@ -128,21 +133,23 @@ public class FileController {
 
     @ApiOperation(value = "查找：单个业务封面文件", notes = "查找：单个业务封面文件")
     @GetMapping("/findFileCover")
+    @TokenCheck
     public ResultData<FileCoverEntity> findFileCover(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @RequestParam("fileCode") String fileCode) {
 
         FileEntity fileEntity = new FileEntity();
         fileEntity.setFileCode(fileCode);
-        fileEntity.setOwnerUser(JWTUtil.getUsername(token));
+        fileEntity.setOwnerUser(TokenUtil.getUserName(token));
         return fileService.findFileCover(fileEntity);
     }
 
     @ApiOperation(value = "查找：用户的业务封面文件", notes = "查找：用户的业务封面文件")
     @GetMapping("/findFileCoverByOwner")
+    @TokenCheck
     public ResultData<List<FileCoverEntity>> findFileCoverByOwner(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token) {
 
-        return fileService.findFileCoverByOwner(JWTUtil.getUsername(token));
+        return fileService.findFileCoverByOwner(TokenUtil.getUserName(token));
     }
 }
