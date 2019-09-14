@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public ResultData handleException(Exception e){
+    public ResultData handleException(Exception e) {
         e.printStackTrace();
         return ResultData.error(e.getMessage());
     }
 
     //自定义异常
-    @ExceptionHandler(TokenException.class)
-    public ResultData handleException(TokenException e){
+    @ExceptionHandler(NormalException.class)
+    public ResultData handleException(NormalException e) {
         e.printStackTrace();
-        return ResultData.error(e.getMessage());
+        return ResultData.error(e.getCode(), e.getMsg());
     }
 
 //    //这是实体类 参数校验注解不通过会抛出的异常 只有全局异常能拦截到

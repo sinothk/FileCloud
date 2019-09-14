@@ -1,7 +1,8 @@
 package com.sinothk.cloud.comm.authorization;
 
 import com.sinothk.base.utils.TokenUtil;
-import com.sinothk.cloud.comm.exceptions.TokenException;
+import com.sinothk.cloud.comm.exceptions.NormalException;
+import com.sinothk.cloud.file.domain.ErrorCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.HandlerMethod;
@@ -45,7 +46,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
         //token为空
         if (token == null || token.equals("")) {
-            throw new TokenException("TOKEN_NOT_EMPTY"); //ErrorCode.TOKEN_NOT_EMPTY
+            throw new NormalException(ErrorCode.TOKEN_NOT_EMPTY); //ErrorCode.TOKEN_NOT_EMPTY
         }
 
         //查询token信息
@@ -59,7 +60,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             request.setAttribute("userName", TokenUtil.getUserName(token));
             return true;
         } else {
-            throw new TokenException("token失效，请尝试重新登录");
+            throw new NormalException(ErrorCode.TOKEN_ERROR);//
         }
     }
 
