@@ -1,4 +1,4 @@
-package com.sinothk.cloud.file.inters;
+package com.sinothk.cloud.comm.authorization;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

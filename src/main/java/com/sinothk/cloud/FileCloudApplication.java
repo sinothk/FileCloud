@@ -1,4 +1,4 @@
-package com.sinothk.cloud.file;
+package com.sinothk.cloud;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

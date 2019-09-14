@@ -1,4 +1,4 @@
-package com.sinothk.cloud.file.exception;
+package com.sinothk.cloud.comm.exceptions;
 
 public class TokenException extends RuntimeException{
 

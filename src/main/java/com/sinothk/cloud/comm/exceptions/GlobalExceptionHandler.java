@@ -1,4 +1,4 @@
-package com.sinothk.cloud.file.exception;
+package com.sinothk.cloud.comm.exceptions;
 
 import com.sinothk.base.entity.ResultData;
 import org.springframework.web.bind.annotation.ControllerAdvice;

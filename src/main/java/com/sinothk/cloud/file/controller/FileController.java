@@ -5,7 +5,7 @@ import com.sinothk.base.utils.JWTUtil;
 import com.sinothk.base.utils.StringUtil;
 import com.sinothk.cloud.file.domain.FileCoverEntity;
 import com.sinothk.cloud.file.domain.FileEntity;
-import com.sinothk.cloud.file.inters.TokenCheck;
+import com.sinothk.cloud.comm.authorization.TokenCheck;
 import com.sinothk.cloud.file.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
