@@ -49,7 +49,7 @@
         <dependency>
             <groupId>com.sinothk.base</groupId>
             <artifactId>sinothk-base</artifactId>
-            <version>1.19.0925</version>
+            <version>1.19.0926</version>
         </dependency>
 
         <!--实体-->
