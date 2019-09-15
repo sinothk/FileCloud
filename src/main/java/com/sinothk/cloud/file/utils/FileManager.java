@@ -31,45 +31,27 @@ public class FileManager {
      * @return
      * @throws IOException
      */
-    public String saveFileIntoWin(String locFilePath, String fileName, MultipartFile file) {
-        if (file.isEmpty()) {
-            return null;
-        }
+    public void saveFileIntoWin(String locFilePath, String fileName, MultipartFile file) {
+        new Thread(() -> {
 
-        File fp = new File(locFilePath);
+            if (file.isEmpty()) {
+                return;
+            }
 
-        if (!fp.exists()) {
-            fp.mkdirs();
-        }
+            File fp = new File(locFilePath);
 
-        Path path = fp.toPath().resolve(fileName);
+            if (!fp.exists()) {
+                fp.mkdirs();
+            }
 
-        try {
-            Files.copy(file.getInputStream(), path);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            Path path = fp.toPath().resolve(fileName);
 
-        return locFilePath + fileName;
-
-//        new Thread(() -> {
-//
-//            String allPath = virtualPath + locPath;
-//
-//            File fp = new File(allPath);
-//
-//            if (!fp.exists()) {
-//                fp.mkdirs();
-//            }
-//
-//            Path path = fp.toPath().resolve(fileName);
-//
-//            try {
-//                Files.copy(file.getInputStream(), path);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }).start();
+            try {
+                Files.copy(file.getInputStream(), path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
 //    public String saveIntoWin(String filePath, String fileName, MultipartFile file) {

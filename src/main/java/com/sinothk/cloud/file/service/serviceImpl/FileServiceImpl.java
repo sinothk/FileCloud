@@ -188,10 +188,7 @@ public class FileServiceImpl implements FileService {
                 // 判断文件名,存在，则重新命名
                 String fileTempName = FileManager.getInstance().getFileName(locFilePath, fileName);
                 // 返回文件存储的磁盘路径
-                String locPath = FileManager.getInstance().saveFileIntoWin(locFilePath, fileTempName, multipartFile);
-                if (StringUtil.isEmpty(locPath)) {
-                    continue;
-                }
+                FileManager.getInstance().saveFileIntoWin(locFilePath, fileTempName, multipartFile);
 
                 // 保存文件访问相对地址
                 String fileUrl = fileServerPath + fileTempName;
