@@ -2,10 +2,9 @@ package com.sinothk.cloud.file.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sinothk.base.entity.ResultData;
+import com.sinothk.base.utils.StringUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
-import com.sinothk.cloud.file.domain.FileCoverEntity;
 import com.sinothk.cloud.file.domain.FileEntity;
-import com.sinothk.cloud.file.repository.FileCoverMapper;
 import com.sinothk.cloud.file.repository.FileMapper;
 import com.sinothk.cloud.file.service.FileService;
 import com.sinothk.cloud.file.utils.FileManager;
@@ -26,8 +25,6 @@ public class FileServiceImpl implements FileService {
 
     @Resource(name = "fileMapper")
     private FileMapper fileMapper;
-    @Resource(name = "fileCoverMapper")
-    private FileCoverMapper fileCoverMapper;
 
 //    @Override
 //    public ResultData<FileEntity> addFiles(FileEntity fileEntity, MultipartFile[] files) {
@@ -126,13 +123,6 @@ public class FileServiceImpl implements FileService {
             queryWrapper.lambda().eq(FileEntity::getFileCode, fileEntity.getFileCode())
                     .eq(FileEntity::getOwnerUser, fileEntity.getOwnerUser());
             fileMapper.delete(queryWrapper);
-
-            // 删除封面
-            QueryWrapper<FileCoverEntity> queryWrapperCover = new QueryWrapper<>();
-            queryWrapperCover.lambda().eq(FileCoverEntity::getFileCode, fileEntity.getFileCode())
-                    .eq(FileCoverEntity::getOwnerUser, fileEntity.getOwnerUser());
-            fileCoverMapper.delete(queryWrapperCover);
-
             return ResultData.success(true);
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
@@ -167,46 +157,16 @@ public class FileServiceImpl implements FileService {
     }
 
     /**
-     * 获得业务封面文件
+     * 保存文件到windows
      *
-     * @param fileEntity
+     * @param files
+     * @param username
+     * @param fileType
+     * @param bizType
      * @return
      */
     @Override
-    public ResultData<FileCoverEntity> findFileCover(FileEntity fileEntity) {
-        try {
-            QueryWrapper<FileCoverEntity> queryWrapperCover = new QueryWrapper<>();
-            queryWrapperCover.lambda().eq(FileCoverEntity::getFileCode, fileEntity.getFileCode())
-                    .eq(FileCoverEntity::getOwnerUser, fileEntity.getOwnerUser());
-
-            FileCoverEntity fileCoverList = fileCoverMapper.selectOne(queryWrapperCover);
-            return ResultData.success(fileCoverList);
-        } catch (Exception e) {
-            if (serverConfig.isDebug()) {
-                e.printStackTrace();
-            }
-            return ResultData.error("处理异常");
-        }
-    }
-
-    @Override
-    public ResultData<List<FileCoverEntity>> findFileCoverByOwner(String ownerName) {
-        try {
-            QueryWrapper<FileCoverEntity> queryWrapperCover = new QueryWrapper<>();
-            queryWrapperCover.lambda()
-                    .eq(FileCoverEntity::getOwnerUser, ownerName);
-            List<FileCoverEntity> fileCoverList = fileCoverMapper.selectList(queryWrapperCover);
-            return ResultData.success(fileCoverList);
-        } catch (Exception e) {
-            if (serverConfig.isDebug()) {
-                e.printStackTrace();
-            }
-            return ResultData.error("处理异常");
-        }
-    }
-
-    @Override
-    public ArrayList<FileEntity> save(MultipartFile[] files, String username, String fileType, String fileName, String bizType) {
+    public ArrayList<FileEntity> saveIntoWin(MultipartFile[] files, String username, String fileType, String bizType) {
         try {
             //
             ArrayList<FileEntity> fileEntities = new ArrayList<>();
@@ -215,29 +175,31 @@ public class FileServiceImpl implements FileService {
             String photoId = String.valueOf(currDate.getTime());
 
             for (int i = 0; i < files.length; i++) {
-
                 MultipartFile multipartFile = files[i];
 
+                // 新文件路径
+                String fileServerPath = username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
                 // 原文件名
-                String oldFileName = multipartFile.getOriginalFilename();
-                // 新文件名
-                String fileClass = oldFileName.substring(oldFileName.lastIndexOf("."));
-                String fileLocName = username + "_" + getIdByDateTimeString() + fileClass;
-
-                // 相对目录
-                String locPath = username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
-
-                String fileUrl = locPath + fileLocName;
+                String fileName = multipartFile.getOriginalFilename();
 
                 // 保存到硬件
-                FileManager.getInstance().saveFile(serverConfig.getVirtualPath(), locPath, fileLocName, multipartFile);
+                // 拼装相对地址
+                String locFilePath = serverConfig.getVirtualPath() + fileServerPath;
+                // 判断文件名,存在，则重新命名
+                String fileTempName = FileManager.getInstance().getFileName(locFilePath, fileName);
+                // 返回文件存储的磁盘路径
+                String locPath = FileManager.getInstance().saveFileIntoWin(locFilePath, fileTempName, multipartFile);
+                if (StringUtil.isEmpty(locPath)) {
+                    continue;
+                }
 
-                // 新增图片文件
+                // 保存文件访问相对地址
+                String fileUrl = fileServerPath + fileTempName;
+
+                // 保存到表
                 FileEntity fileEntity = new FileEntity();
                 fileEntity.setFileCode(photoId);
-                fileEntity.setFileOldName(oldFileName);
-                fileEntity.setFileName(fileName);
-                fileEntity.setFileLocName(fileLocName);
+                fileEntity.setFileName(fileTempName);
                 fileEntity.setFileUrl(fileUrl);
                 fileEntity.setFileSize(multipartFile.getSize());
                 fileEntity.setCreateTime(currDate);
@@ -245,29 +207,9 @@ public class FileServiceImpl implements FileService {
                 fileEntity.setFileType(fileType);
                 fileEntity.setBizType(bizType);
                 fileMapper.insert(fileEntity);
+
                 fileEntities.add(fileEntity);
-
-                if (i == 0) {// 新增封面
-                    if (fileType.equals("IMAGE") && FileManager.getInstance().isImage(oldFileName)) {
-                        // 图片处理方式
-                        FileCoverEntity fileInfo = new FileCoverEntity();
-                        fileInfo.setFileCode(photoId);
-                        fileInfo.setFileOldName(oldFileName);
-                        fileInfo.setFileName(fileName);
-                        fileInfo.setFileLocName(fileLocName);
-                        fileInfo.setFileUrl(fileUrl);
-                        fileInfo.setFileSize(multipartFile.getSize());
-                        fileInfo.setCreateTime(currDate);
-                        fileInfo.setFileType(fileType);
-                        fileInfo.setOwnerUser(username);
-                        fileInfo.setBizType(bizType);
-
-                        fileCoverMapper.insert(fileInfo);
-                    }
-
-                }
             }
-
             return fileEntities;
 
         } catch (IllegalStateException e) {

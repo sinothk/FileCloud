@@ -44,14 +44,6 @@ public class FileEntity {
     @TableField("file_name")
     private String fileName;
 
-    @ApiModelProperty(value = "文件原名称")
-    @TableField("file_old_name")
-    private String fileOldName;
-
-    @ApiModelProperty(value = "文件硬件内名称")
-    @TableField("file_loc_name")
-    private String fileLocName;
-
     @ApiModelProperty(value = "文件url")
     @TableField("file_url")
     private String fileUrl;

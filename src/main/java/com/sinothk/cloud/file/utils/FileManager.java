@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FileManager {
 
@@ -23,46 +25,74 @@ public class FileManager {
     }
 
     /**
-     * @param virtualPath E:/SINOTHK/serverVMFiles/sinothk/
-     * @param locPath     liangyt/img/201907/
-     * @param fileNewName liangyt_20190716112744.zip
+     * @param locFilePath E:/SINOTHK/serverVMFiles/sinothk/liangyt/img/201907/
+     * @param fileName    liangyt_20190716112744.zip
      * @param file
      * @return
      * @throws IOException
      */
-    public void saveFile(String virtualPath, String locPath, String fileNewName, MultipartFile file) {
+    public String saveFileIntoWin(String locFilePath, String fileName, MultipartFile file) {
         if (file.isEmpty()) {
-            return;
+            return null;
         }
 
-//        String allPath = virtualPath + locPath;
-//        File fp = new File(allPath);
+        File fp = new File(locFilePath);
+
+        if (!fp.exists()) {
+            fp.mkdirs();
+        }
+
+        Path path = fp.toPath().resolve(fileName);
+
+        try {
+            Files.copy(file.getInputStream(), path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return locFilePath + fileName;
+
+//        new Thread(() -> {
+//
+//            String allPath = virtualPath + locPath;
+//
+//            File fp = new File(allPath);
+//
+//            if (!fp.exists()) {
+//                fp.mkdirs();
+//            }
+//
+//            Path path = fp.toPath().resolve(fileName);
+//
+//            try {
+//                Files.copy(file.getInputStream(), path);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }).start();
+    }
+
+//    public String saveIntoWin(String filePath, String fileName, MultipartFile file) {
+//        if (file.isEmpty()) {
+//            return null;
+//        }
+//
+//        File fp = new File(filePath);
+//
 //        if (!fp.exists()) {
 //            fp.mkdirs();
 //        }
 //
-//        Path path = fp.toPath().resolve(fileNewName);
+//        Path path = fp.toPath().resolve(fileName);
+//
 //        try {
 //            Files.copy(file.getInputStream(), path);
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-
-        new Thread(() -> {
-            String allPath = virtualPath + locPath;
-            File fp = new File(allPath);
-            if (!fp.exists()) {
-                fp.mkdirs();
-            }
-
-            Path path = fp.toPath().resolve(fileNewName);
-            try {
-                Files.copy(file.getInputStream(), path);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
+//
+//        return filePath + fileName;
+//    }
 
     public boolean isImage(String fileName) {
         if (fileName.contains("png")
@@ -74,6 +104,25 @@ public class FileManager {
             return true;
         } else {
             return false;
+        }
+    }
+
+    /**
+     * 判断文件：存在同名文件处理后返回
+     *
+     * @param locPath
+     * @param fileName
+     * @return
+     */
+    public String getFileName(String locPath, String fileName) {
+        File tempFile = new File(locPath + fileName);
+        if (tempFile.exists()) {
+            String fileNameBefore = fileName.substring(0, fileName.lastIndexOf("."));
+            String fileClass = fileName.substring(fileName.lastIndexOf("."));
+            fileName = fileNameBefore + "_" + new Date().getTime() + fileClass;
+            return fileName;
+        } else {
+            return fileName;
         }
     }
 }
