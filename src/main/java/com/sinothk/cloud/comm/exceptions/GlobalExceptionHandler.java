@@ -1,24 +1,26 @@
 package com.sinothk.cloud.comm.exceptions;
 
 import com.sinothk.base.entity.ResultData;
-import org.springframework.http.HttpHeaders;
+import com.sinothk.cloud.file.config.ServerConfig;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
-import org.springframework.web.multipart.MultipartException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.naming.SizeLimitExceededException;
-import java.util.Map;
+import javax.annotation.Resource;
 
 @RestControllerAdvice
 @ResponseBody
-public class GlobalExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+
+    @Resource(name = "serverConfig")
+    private ServerConfig serverConfig;
 
     @ExceptionHandler(Exception.class)
     public ResultData handleException(Exception e) {
         e.printStackTrace();
-        return ResultData.error("12121212");//e.getMessage()
+        return ResultData.error(e.getMessage());//
     }
 
     //自定义异常
@@ -28,32 +30,11 @@ public class GlobalExceptionHandler {
         return ResultData.error(e.getCode(), e.getMsg());
     }
 
-    /**
-     * 处理上传异常
-     *
-     * @param e
-     * @return
-     */
-    @ExceptionHandler(MultipartException.class)
-    public String handleAll(Throwable e) {
-        e.printStackTrace();
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Content-Type","application/json;charset=UTF-8");
-        return headers.toString();
-
-//        return ResultData.error(20000, e.getMessage());
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.set("Content-Type","application/json;charset=UTF-8");
-
-//        return new ResponseEntity<>(new Result(-1,"上传文件异常！",null),headers, HttpStatus.OK);
-    }
-
-    /* spring默认上传大小1MB 超出大小捕获异常MaxUploadSizeExceededException */
+    /* spring默认上传大小，超出大小捕获异常MaxUploadSizeExceededException */
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     @ResponseBody
     public ResultData handleMaxUploadSizeExceededException(MaxUploadSizeExceededException e) {
-        return ResultData.error("文件大小超出1MB限制, 请压缩或降低文件质量! ");
+        return ResultData.error("文件大小超出" + serverConfig.getFileMaxSize() + "限制");
     }
 
 

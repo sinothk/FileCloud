@@ -16,4 +16,7 @@ public class ServerConfig {
 
     @Value("${config.isDebug}")
     private boolean isDebug;
+
+    @Value("${config.fileMaxSize}")
+    private String fileMaxSize;
 }

@@ -16,5 +16,4 @@ public class FileCloudApplication {
     public static void main(String[] args) {
         SpringApplication.run(FileCloudApplication.class, args);
     }
-
 }
