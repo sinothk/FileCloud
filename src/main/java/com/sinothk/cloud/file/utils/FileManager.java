@@ -25,11 +25,11 @@ public class FileManager {
     }
 
     /**
+     * 保存到Windows中
+     *
      * @param locFilePath E:/SINOTHK/serverVMFiles/sinothk/liangyt/img/201907/
      * @param fileName    liangyt_20190716112744.zip
-     * @param file
-     * @return
-     * @throws IOException
+     * @param file        文件
      */
     public void saveFileIntoWin(String locFilePath, String fileName, MultipartFile file) {
         new Thread(() -> {
@@ -54,17 +54,30 @@ public class FileManager {
         }).start();
     }
 
-    public boolean isImage(String fileName) {
-        if (fileName.contains("png")
-                || fileName.contains("PNG")
-                || fileName.contains("jpg")
-                || fileName.contains("JPG")
-                || fileName.contains("jpeg")
-                || fileName.contains("JPEG")) {
-            return true;
-        } else {
-            return false;
-        }
+    /**
+     * 保存文件到Linux系统
+     *
+     * @param locFilePath /usr/***
+     * @param fileName    liangyt_20190716112744.zip
+     * @param file        文件
+     */
+    public void saveFileIntoLinux(String locFilePath, String fileName, MultipartFile file) {
+        new Thread(() -> {
+            if (file.isEmpty()) {
+                return;
+            }
+
+            File newFile = new File(locFilePath + fileName);
+            if (!newFile.exists()) {
+                boolean isOk = newFile.mkdirs();
+            }
+
+            try {
+                file.transferTo(newFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     /**
@@ -86,6 +99,11 @@ public class FileManager {
         }
     }
 
+    /**
+     * 删除文件
+     *
+     * @param fileAllPath
+     */
     public void delFile(String fileAllPath) {
         new Thread(() -> {
             File file = new File(fileAllPath);
@@ -95,25 +113,5 @@ public class FileManager {
         }).start();
     }
 
-    public void saveFileIntoLinux(String locFilePath, String fileName, MultipartFile file) {
-        new Thread(() -> {
-            if (file.isEmpty()) {
-                return;
-            }
 
-            File fp = new File(locFilePath);
-
-            if (!fp.exists()) {
-                fp.mkdirs();
-            }
-
-            Path path = fp.toPath().resolve(fileName);
-
-            try {
-                Files.copy(file.getInputStream(), path);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
 }

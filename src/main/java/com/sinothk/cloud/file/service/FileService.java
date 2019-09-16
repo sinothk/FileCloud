@@ -14,4 +14,6 @@ public interface FileService {
     ArrayList<FileEntity> saveIntoWin(MultipartFile[] files, String username, String fileType, String bizType);
 
     ArrayList<FileEntity> saveIntoLinux(MultipartFile[] files, String username, String fileType, String bizType);
+
+    ArrayList<FileEntity> findFielByBizId(String bizId);
 }

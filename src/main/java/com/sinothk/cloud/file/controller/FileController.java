@@ -23,7 +23,7 @@ public class FileController {
     @Resource(name = "fileService")
     private FileService fileService;
 
-    @ApiOperation(value = "新增：保存文件", notes = "新增文件")
+    @ApiOperation(value = "新增：保存文件到Win", notes = "保存文件到Win")
     @PostMapping("/add")
     @TokenCheck
     public ResultData<ArrayList<FileEntity>> add(
@@ -55,7 +55,7 @@ public class FileController {
         }
     }
 
-    @ApiOperation(value = "新增：保存文件", notes = "新增文件")
+    @ApiOperation(value = "新增：保存文件到Linux", notes = "保存文件到Linux")
     @PostMapping("/addByLinux")
     @TokenCheck
     public ResultData<ArrayList<FileEntity>> addByLinux(

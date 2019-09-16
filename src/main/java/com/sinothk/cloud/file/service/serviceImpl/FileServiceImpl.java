@@ -33,20 +33,7 @@ public class FileServiceImpl implements FileService {
 //     */
 //    @Override
 //    public ResultData<List<FileEntity>> findFileByFileCodeAndOwner(FileEntity fileEntity) {
-//        try {
-//            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
-//            queryWrapper.lambda()
-//                    .eq(FileEntity::getFileCode, fileEntity.getFileCode())
-//                    .eq(FileEntity::getOwnerUser, fileEntity.getOwnerUser());
-//
-//            List<FileEntity> fileList = fileMapper.selectList(queryWrapper);
-//            return ResultData.success(fileList);
-//        } catch (Exception e) {
-//            if (serverConfig.isDebug()) {
-//                e.printStackTrace();
-//            }
-//            return ResultData.error("处理异常");
-//        }
+
 //    }
 
     /**
@@ -203,6 +190,24 @@ public class FileServiceImpl implements FileService {
             return fileEntities;
 
         } catch (IllegalStateException e) {
+            if (serverConfig.isDebug()) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<FileEntity> findFielByBizId(String bizId) {
+        try {
+            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.lambda().eq(FileEntity::getBizId, bizId);
+
+            ArrayList<FileEntity> fileList = (ArrayList<FileEntity>) fileMapper.selectList(queryWrapper);
+
+
+            return fileList;
+        } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();
             }
