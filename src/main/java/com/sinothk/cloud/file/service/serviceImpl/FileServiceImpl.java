@@ -1,8 +1,7 @@
 package com.sinothk.cloud.file.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.sinothk.base.entity.ResultData;
-import com.sinothk.base.utils.StringUtil;
+import com.sinothk.base.utils.IdUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
 import com.sinothk.cloud.file.domain.FileEntity;
 import com.sinothk.cloud.file.repository.FileMapper;
@@ -15,7 +14,7 @@ import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.UUID;
 
 @Service("fileService")
 public class FileServiceImpl implements FileService {
@@ -26,67 +25,27 @@ public class FileServiceImpl implements FileService {
     @Resource(name = "fileMapper")
     private FileMapper fileMapper;
 
+//    /**
+//     * 获得业务文件
+//     *
+//     * @param fileEntity
+//     * @return
+//     */
 //    @Override
-//    public ResultData<FileEntity> addFiles(FileEntity fileEntity, MultipartFile[] files) {
+//    public ResultData<List<FileEntity>> findFileByFileCodeAndOwner(FileEntity fileEntity) {
 //        try {
-//            // 保存图片
-//            Date currDate = new Date();
-//            String dateFlag = new SimpleDateFormat("yyyyMM").format(currDate);// 时间目录
-//            String photoId = String.valueOf(currDate.getTime());
+//            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
+//            queryWrapper.lambda()
+//                    .eq(FileEntity::getFileCode, fileEntity.getFileCode())
+//                    .eq(FileEntity::getOwnerUser, fileEntity.getOwnerUser());
 //
-//            ArrayList<MultipartFile> fileList = new ArrayList<>(Arrays.asList(files));
-//
-//            for (int i = 0; i < fileList.size(); i++) {
-//
-//                MultipartFile multipartFile = fileList.get(i);
-//
-//                // 目录
-//                String ownerName = fileEntity.getOwnerUser();
-//                String dirPath = ownerName + "/" + fileEntity.getFileType() + "/" + dateFlag + "/";
-//                // 原文件名
-//                String oldFileName = multipartFile.getOriginalFilename();
-//                // 新文件名
-//                String fileNameStr = ownerName + "_" + getIdByDateTimeString() + oldFileName.substring(oldFileName.lastIndexOf("."));
-//
-//                // 保存到硬件
-//                String fileUrl = FileUtil.saveIntoWinOS(serverConfig.getVirtualPath(), dirPath, fileNameStr, multipartFile);
-//
-//                FileManager.getInstance().saveFile(serverConfig.getVirtualPath(), locPath, fileLocName, multipartFile);
-//
-//                if (i == 0 && !StringUtil.isEmpty(fileUrl)) {
-//                    // 新增封面
-//                    FileCoverEntity fileInfo = new FileCoverEntity();
-//                    fileInfo.setFileCode(photoId);
-//                    fileInfo.setFileOldName(oldFileName);
-//                    fileInfo.setFileName(fileNameStr);
-//                    fileInfo.setFileUrl(fileUrl);
-//                    fileInfo.setFileSize(multipartFile.getSize());
-//                    fileInfo.setCreateTime(currDate);
-//                    fileInfo.setFileType(fileEntity.getFileType());
-//                    fileInfo.setOwnerUser(ownerName);
-//                    fileInfo.setBizType(fileEntity.getBizType());
-//
-//                    fileCoverMapper.insert(fileInfo);
-//                }
-//
-//                // 新增图片文件
-//                fileEntity.setFileCode(photoId);
-//                fileEntity.setFileOldName(oldFileName);
-//                fileEntity.setFileName(fileNameStr);
-//                fileEntity.setFileUrl(fileUrl);
-//                fileEntity.setFileSize(multipartFile.getSize());
-//                fileEntity.setCreateTime(currDate);
-//                fileEntity.setOwnerUser(ownerName);
-//                fileMapper.insert(fileEntity);
-//
-//                Thread.sleep(1000);
-//            }
-//            return ResultData.success(null);
-//        } catch (IllegalStateException | InterruptedException e) {
+//            List<FileEntity> fileList = fileMapper.selectList(queryWrapper);
+//            return ResultData.success(fileList);
+//        } catch (Exception e) {
 //            if (serverConfig.isDebug()) {
 //                e.printStackTrace();
 //            }
-//            return ResultData.error("提交异常");
+//            return ResultData.error("处理异常");
 //        }
 //    }
 
@@ -97,62 +56,48 @@ public class FileServiceImpl implements FileService {
      * @return
      */
     @Override
-    public ResultData<Boolean> delFile(String id) {
+    public String delById(String id) {
         try {
+            FileEntity fileEntity = fileMapper.selectById(id);
+
+            // 删除表
             fileMapper.deleteById(id);
-            return ResultData.success(true);
+            // 删除硬件
+            FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileUrl());
+            return "";
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();
             }
-            return ResultData.error("处理异常");
+            return e.getMessage();
         }
     }
 
     /**
-     * 删除业务数据
+     * 删除文件：bizId
      *
-     * @param fileEntity
+     * @param bizId
      * @return
      */
     @Override
-    public ResultData<Boolean> delFileByFileCode8Owner(FileEntity fileEntity) {
+    public String delByBizId(String bizId) {
+
         try {
-            // 删除文件
             QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(FileEntity::getFileCode, fileEntity.getFileCode())
-                    .eq(FileEntity::getOwnerUser, fileEntity.getOwnerUser());
-            fileMapper.delete(queryWrapper);
-            return ResultData.success(true);
+            queryWrapper.lambda().eq(FileEntity::getBizId, bizId);
+
+            ArrayList<FileEntity> fileList = (ArrayList<FileEntity>) fileMapper.selectList(queryWrapper);
+
+            for (FileEntity fileEntity : fileList) {
+                fileMapper.deleteById(fileEntity.getId());
+                FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileUrl());
+            }
+            return "";
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();
             }
-            return ResultData.error("处理异常");
-        }
-    }
-
-    /**
-     * 获得业务文件
-     *
-     * @param fileEntity
-     * @return
-     */
-    @Override
-    public ResultData<List<FileEntity>> findFileByFileCodeAndOwner(FileEntity fileEntity) {
-        try {
-            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda()
-                    .eq(FileEntity::getFileCode, fileEntity.getFileCode())
-                    .eq(FileEntity::getOwnerUser, fileEntity.getOwnerUser());
-
-            List<FileEntity> fileList = fileMapper.selectList(queryWrapper);
-            return ResultData.success(fileList);
-        } catch (Exception e) {
-            if (serverConfig.isDebug()) {
-                e.printStackTrace();
-            }
-            return ResultData.error("处理异常");
+            return e.getMessage();
         }
     }
 
@@ -172,11 +117,9 @@ public class FileServiceImpl implements FileService {
             ArrayList<FileEntity> fileEntities = new ArrayList<>();
             // 保存
             Date currDate = new Date();
-            String photoId = String.valueOf(currDate.getTime());
+            String bizId = IdUtil.generateShortUuid();
 
-            for (int i = 0; i < files.length; i++) {
-                MultipartFile multipartFile = files[i];
-
+            for (MultipartFile multipartFile : files) {
                 // 新文件路径
                 String fileServerPath = username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
                 // 原文件名
@@ -195,7 +138,7 @@ public class FileServiceImpl implements FileService {
 
                 // 保存到表
                 FileEntity fileEntity = new FileEntity();
-                fileEntity.setFileCode(photoId);
+                fileEntity.setBizId(bizId);
                 fileEntity.setFileName(fileTempName);
                 fileEntity.setFileUrl(fileUrl);
                 fileEntity.setFileSize(multipartFile.getSize());
@@ -218,11 +161,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public ArrayList<FileEntity> saveLinux(MultipartFile[] files, String username, String fileType, String fileName, String bizType) {
+    public ArrayList<FileEntity> saveIntoLinux(MultipartFile[] files, String username, String fileType, String bizType) {
         return null;
-    }
-
-    public static String getIdByDateTimeString() {
-        return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
     }
 }

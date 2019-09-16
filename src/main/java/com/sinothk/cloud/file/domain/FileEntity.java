@@ -22,8 +22,8 @@ public class FileEntity {
     private Long id;
 
     @ApiModelProperty(value = "业务编码")
-    @TableField("file_code")
-    private String fileCode;
+    @TableField("biz_id")
+    private String bizId;
 
     @ApiModelProperty(value = "业务类型")
     @TableField("biz_type")

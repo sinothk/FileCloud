@@ -54,28 +54,6 @@ public class FileManager {
         }).start();
     }
 
-//    public String saveIntoWin(String filePath, String fileName, MultipartFile file) {
-//        if (file.isEmpty()) {
-//            return null;
-//        }
-//
-//        File fp = new File(filePath);
-//
-//        if (!fp.exists()) {
-//            fp.mkdirs();
-//        }
-//
-//        Path path = fp.toPath().resolve(fileName);
-//
-//        try {
-//            Files.copy(file.getInputStream(), path);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return filePath + fileName;
-//    }
-
     public boolean isImage(String fileName) {
         if (fileName.contains("png")
                 || fileName.contains("PNG")
@@ -106,5 +84,14 @@ public class FileManager {
         } else {
             return fileName;
         }
+    }
+
+    public void delFile(String fileAllPath) {
+        new Thread(() -> {
+            File file = new File(fileAllPath);
+            if (file.exists()) {
+                boolean del = file.delete();
+            }
+        }).start();
     }
 }
