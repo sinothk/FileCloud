@@ -162,6 +162,51 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public ArrayList<FileEntity> saveIntoLinux(MultipartFile[] files, String username, String fileType, String bizType) {
-        return null;
+        try {
+            //
+            ArrayList<FileEntity> fileEntities = new ArrayList<>();
+            // 保存
+            Date currDate = new Date();
+            String bizId = IdUtil.generateShortUuid();
+
+            for (MultipartFile multipartFile : files) {
+                // 新文件路径
+                String fileServerPath = username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
+                // 原文件名
+                String fileName = multipartFile.getOriginalFilename();
+
+                // 保存到硬件
+                // 拼装相对地址
+                String locFilePath = serverConfig.getVirtualPath() + fileServerPath;
+                // 判断文件名,存在，则重新命名
+                String fileTempName = FileManager.getInstance().getFileName(locFilePath, fileName);
+                // 返回文件存储的磁盘路径
+                FileManager.getInstance().saveFileIntoLinux(locFilePath, fileTempName, multipartFile);
+
+                // 保存文件访问相对地址
+                String fileUrl = fileServerPath + fileTempName;
+
+                // 保存到表
+                FileEntity fileEntity = new FileEntity();
+                fileEntity.setBizId(bizId);
+                fileEntity.setFileName(fileTempName);
+                fileEntity.setFileUrl(fileUrl);
+                fileEntity.setFileSize(multipartFile.getSize());
+                fileEntity.setCreateTime(currDate);
+                fileEntity.setOwnerUser(username);
+                fileEntity.setFileType(fileType);
+                fileEntity.setBizType(bizType);
+                fileMapper.insert(fileEntity);
+
+                fileEntities.add(fileEntity);
+            }
+            return fileEntities;
+
+        } catch (IllegalStateException e) {
+            if (serverConfig.isDebug()) {
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 }

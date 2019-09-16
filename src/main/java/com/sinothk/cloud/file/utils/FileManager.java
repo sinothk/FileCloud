@@ -94,4 +94,26 @@ public class FileManager {
             }
         }).start();
     }
+
+    public void saveFileIntoLinux(String locFilePath, String fileName, MultipartFile file) {
+        new Thread(() -> {
+            if (file.isEmpty()) {
+                return;
+            }
+
+            File fp = new File(locFilePath);
+
+            if (!fp.exists()) {
+                fp.mkdirs();
+            }
+
+            Path path = fp.toPath().resolve(fileName);
+
+            try {
+                Files.copy(file.getInputStream(), path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
 }
