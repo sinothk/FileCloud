@@ -4632,3 +4632,698 @@ Update your application's configuration
 2019-09-16 11:08:04.445 DEBUG 18896 --- [http-nio-7000-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
 2019-09-16 11:08:04.447 DEBUG 18896 --- [http-nio-7000-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":"","msg":"成功"}]
 2019-09-16 11:08:04.449 DEBUG 18896 --- [http-nio-7000-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:19:31.544  INFO 12068 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 12068 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 11:19:31.554  INFO 12068 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 11:19:33.190  INFO 12068 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c872c74f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 11:19:33.538  INFO 12068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 11:19:33.563  INFO 12068 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 11:19:33.564  INFO 12068 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 11:19:33.572  INFO 12068 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 11:19:33.573  INFO 12068 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 11:19:33.573  INFO 12068 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 11:19:33.573  INFO 12068 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 11:19:34.627  INFO 12068 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 11:19:34.784  INFO 12068 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 11:19:34.785 DEBUG 12068 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 11:19:34.785  INFO 12068 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3100 ms
+2019-09-16 11:19:35.184  INFO 12068 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 11:19:35.391  INFO 12068 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 11:19:36.153 DEBUG 12068 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2019-09-16 11:19:36.231  INFO 12068 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-16 11:19:36.291 DEBUG 12068 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-09-16 11:19:36.442  INFO 12068 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-16 11:19:36.531 DEBUG 12068 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-09-16 11:19:36.601 DEBUG 12068 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-09-16 11:19:36.620 DEBUG 12068 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-09-16 11:19:36.780  INFO 12068 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-16 11:19:36.802  INFO 12068 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-16 11:19:36.841  INFO 12068 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-16 11:19:37.087  INFO 12068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path '/fileCloud'
+2019-09-16 11:19:37.091  INFO 12068 --- [main] com.sinothk.cloud.FileCloudApplication   : Started FileCloudApplication in 6.141 seconds (JVM running for 7.43)
+2019-09-16 11:20:26.557  INFO 12068 --- [http-nio-7000-exec-1] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-16 11:20:26.557  INFO 12068 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-16 11:20:26.557 DEBUG 12068 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-09-16 11:20:26.572 DEBUG 12068 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-09-16 11:20:26.574  INFO 12068 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2019-09-16 11:20:26.589 DEBUG 12068 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/doc.html", parameters={}
+2019-09-16 11:20:26.600 DEBUG 12068 --- [http-nio-7000-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 11:20:26.614 DEBUG 12068 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2019-09-16 11:20:26.690 DEBUG 12068 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/webjars/bycdao-ui/images/api.ico", parameters={}
+2019-09-16 11:20:26.692 DEBUG 12068 --- [http-nio-7000-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-09-16 11:20:26.723 DEBUG 12068 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:20:27.002 DEBUG 12068 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/swagger-resources", parameters={}
+2019-09-16 11:20:27.006 DEBUG 12068 --- [http-nio-7000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-09-16 11:20:27.045 DEBUG 12068 --- [http-nio-7000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:20:27.047 DEBUG 12068 --- [http-nio-7000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@34beb240]]
+2019-09-16 11:20:27.096 DEBUG 12068 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:20:27.114 DEBUG 12068 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/v2/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3", parameters={masked}
+2019-09-16 11:20:27.350 DEBUG 12068 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:20:27.351 DEBUG 12068 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@6768d275]
+2019-09-16 11:20:27.353 DEBUG 12068 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:21:28.388  INFO 4396 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 4396 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 11:21:28.392  INFO 4396 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 11:21:30.066  INFO 4396 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$24f4916f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 11:21:30.438  INFO 4396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 11:21:30.491  INFO 4396 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 11:21:30.491  INFO 4396 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 11:21:30.500  INFO 4396 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 11:21:30.501  INFO 4396 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 11:21:30.501  INFO 4396 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 11:21:30.501  INFO 4396 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 11:21:31.567  INFO 4396 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 11:21:31.793  INFO 4396 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 11:21:31.794 DEBUG 4396 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 11:21:31.794  INFO 4396 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3293 ms
+2019-09-16 11:21:32.022  INFO 4396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 11:21:32.208  INFO 4396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 11:21:32.749 DEBUG 4396 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2019-09-16 11:21:32.830  INFO 4396 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-16 11:21:32.890 DEBUG 4396 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-09-16 11:21:33.001  INFO 4396 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-16 11:21:33.058 DEBUG 4396 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-09-16 11:21:33.096 DEBUG 4396 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-09-16 11:21:33.106 DEBUG 4396 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-09-16 11:21:33.218  INFO 4396 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-16 11:21:33.243  INFO 4396 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-16 11:21:33.288  INFO 4396 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-16 11:21:33.511  INFO 4396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path '/fileCloud'
+2019-09-16 11:21:33.514  INFO 4396 --- [main] com.sinothk.cloud.FileCloudApplication   : Started FileCloudApplication in 5.752 seconds (JVM running for 6.939)
+2019-09-16 11:21:38.796  INFO 4396 --- [http-nio-7000-exec-1] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-16 11:21:38.796  INFO 4396 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-16 11:21:38.796 DEBUG 4396 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-09-16 11:21:38.806 DEBUG 4396 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-09-16 11:21:38.807  INFO 4396 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2019-09-16 11:21:38.819 DEBUG 4396 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/doc.html", parameters={}
+2019-09-16 11:21:38.829 DEBUG 4396 --- [http-nio-7000-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 11:21:38.842 DEBUG 4396 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2019-09-16 11:21:38.882 DEBUG 4396 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/webjars/bycdao-ui/images/api.ico", parameters={}
+2019-09-16 11:21:38.886 DEBUG 4396 --- [http-nio-7000-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-09-16 11:21:38.920 DEBUG 4396 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:21:39.131 DEBUG 4396 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/swagger-resources", parameters={}
+2019-09-16 11:21:39.134 DEBUG 4396 --- [http-nio-7000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-09-16 11:21:39.157 DEBUG 4396 --- [http-nio-7000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:21:39.158 DEBUG 4396 --- [http-nio-7000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@2e1b0a73]]
+2019-09-16 11:21:39.191 DEBUG 4396 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:21:39.202 DEBUG 4396 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/v2/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3", parameters={masked}
+2019-09-16 11:21:39.338 DEBUG 4396 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:21:39.339 DEBUG 4396 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@444a6760]
+2019-09-16 11:21:39.340 DEBUG 4396 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:21:50.847 DEBUG 4396 --- [http-nio-7000-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/add", parameters={masked}
+2019-09-16 11:21:50.858 DEBUG 4396 --- [http-nio-7000-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.add(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 11:21:51.821 DEBUG 4396 --- [http-nio-7000-exec-6] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 11:21:51.874 DEBUG 4396 --- [http-nio-7000-exec-6] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, xgMqfDXK(String), file_avatar(String), liangyt(String), image(String), TCPUDPDebug102_Setup.exe(String), liangyt/image/201909/TCPUDPDebug102_Setup.exe(String), 1885768(Long), 2019-09-16 11:21:51.726(Timestamp)
+2019-09-16 11:21:51.923 DEBUG 4396 --- [http-nio-7000-exec-6] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 11:21:51.941 DEBUG 4396 --- [http-nio-7000-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:21:52.130 DEBUG 4396 --- [http-nio-7000-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"xgMqfDXK","bizType":"file_avatar","createTime":1568604111726,"fileName (truncated)...]
+2019-09-16 11:21:52.143 DEBUG 4396 --- [http-nio-7000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:21:57.559 DEBUG 4396 --- [http-nio-7000-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/add", parameters={masked}
+2019-09-16 11:21:57.559 DEBUG 4396 --- [http-nio-7000-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.add(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 11:21:57.568 DEBUG 4396 --- [http-nio-7000-exec-7] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 11:21:57.573 DEBUG 4396 --- [http-nio-7000-exec-7] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, iaz1bMlj(String), file_avatar(String), liangyt(String), image(String), TCPUDPDebug102_Setup_1568604117568.exe(String), liangyt/image/201909/TCPUDPDebug102_Setup_1568604117568.exe(String), 1885768(Long), 2019-09-16 11:21:57.568(Timestamp)
+2019-09-16 11:21:57.609 DEBUG 4396 --- [http-nio-7000-exec-7] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 11:21:57.612 DEBUG 4396 --- [http-nio-7000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:21:57.612 DEBUG 4396 --- [http-nio-7000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"iaz1bMlj","bizType":"file_avatar","createTime":1568604117568,"fileName (truncated)...]
+2019-09-16 11:21:57.618 DEBUG 4396 --- [http-nio-7000-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:22:00.299 DEBUG 4396 --- [http-nio-7000-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/add", parameters={masked}
+2019-09-16 11:22:00.300 DEBUG 4396 --- [http-nio-7000-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.add(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 11:22:00.308 DEBUG 4396 --- [http-nio-7000-exec-8] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 11:22:00.309 DEBUG 4396 --- [http-nio-7000-exec-8] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, 0obfdzww(String), file_avatar(String), liangyt(String), image(String), TCPUDPDebug102_Setup_1568604120306.exe(String), liangyt/image/201909/TCPUDPDebug102_Setup_1568604120306.exe(String), 1885768(Long), 2019-09-16 11:22:00.305(Timestamp)
+2019-09-16 11:22:00.338 DEBUG 4396 --- [http-nio-7000-exec-8] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 11:22:00.340 DEBUG 4396 --- [http-nio-7000-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:22:00.341 DEBUG 4396 --- [http-nio-7000-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"0obfdzww","bizType":"file_avatar","createTime":1568604120305,"fileName (truncated)...]
+2019-09-16 11:22:00.345 DEBUG 4396 --- [http-nio-7000-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:23:03.349 DEBUG 4396 --- [http-nio-7000-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/addByLinux", parameters={masked}
+2019-09-16 11:23:03.350 DEBUG 4396 --- [http-nio-7000-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.addByLinux(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 11:23:03.359 DEBUG 4396 --- [http-nio-7000-exec-9] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 11:23:03.359 DEBUG 4396 --- [http-nio-7000-exec-9] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, 45k56c7y(String), file_activities(String), liangyt(String), video(String), SSHSecureShellClient-3.2.9.exe(String), liangyt/video/201909/SSHSecureShellClient-3.2.9.exe(String), 5517312(Long), 2019-09-16 11:23:03.357(Timestamp)
+2019-09-16 11:23:03.372 DEBUG 4396 --- [http-nio-7000-exec-9] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 11:23:03.579 DEBUG 4396 --- [http-nio-7000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:23:03.580 DEBUG 4396 --- [http-nio-7000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"45k56c7y","bizType":"file_activities","createTime":1568604183357,"file (truncated)...]
+2019-09-16 11:23:03.593 DEBUG 4396 --- [http-nio-7000-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:59:03.370 DEBUG 4396 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : DELETE "/fileCloud/file/delById/175", parameters={}
+2019-09-16 11:59:03.372 DEBUG 4396 --- [http-nio-7000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.lang.String> com.sinothk.cloud.file.controller.FileController.delById(java.lang.String,java.lang.String)
+2019-09-16 11:59:03.384 DEBUG 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectById          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:03.384 DEBUG 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectById          : ==> Parameters: 175(String)
+2019-09-16 11:59:03.415 TRACE 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectById          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 11:59:03.416 TRACE 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectById          : <==        Row: 175, xgMqfDXK, file_avatar, liangyt, image, TCPUDPDebug102_Setup.exe, liangyt/image/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 11:21:52, null
+2019-09-16 11:59:03.420 DEBUG 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectById          : <==      Total: 1
+2019-09-16 11:59:03.421 DEBUG 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.deleteById          : ==>  Preparing: DELETE FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:03.421 DEBUG 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.deleteById          : ==> Parameters: 175(String)
+2019-09-16 11:59:03.524 DEBUG 4396 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.deleteById          : <==    Updates: 1
+2019-09-16 11:59:03.525 DEBUG 4396 --- [http-nio-7000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:59:03.526 DEBUG 4396 --- [http-nio-7000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":"","msg":"成功"}]
+2019-09-16 11:59:03.527 DEBUG 4396 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:59:07.011 DEBUG 4396 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : DELETE "/fileCloud/file/delById/176", parameters={}
+2019-09-16 11:59:07.012 DEBUG 4396 --- [http-nio-7000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.lang.String> com.sinothk.cloud.file.controller.FileController.delById(java.lang.String,java.lang.String)
+2019-09-16 11:59:07.015 DEBUG 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectById          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:07.015 DEBUG 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectById          : ==> Parameters: 176(String)
+2019-09-16 11:59:07.016 TRACE 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectById          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 11:59:07.017 TRACE 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectById          : <==        Row: 176, iaz1bMlj, file_avatar, liangyt, image, TCPUDPDebug102_Setup_1568604117568.exe, liangyt/image/201909/TCPUDPDebug102_Setup_1568604117568.exe, 1885768, 2019-09-16 11:21:58, null
+2019-09-16 11:59:07.018 DEBUG 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectById          : <==      Total: 1
+2019-09-16 11:59:07.018 DEBUG 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.deleteById          : ==>  Preparing: DELETE FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:07.018 DEBUG 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.deleteById          : ==> Parameters: 176(String)
+2019-09-16 11:59:07.047 DEBUG 4396 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.deleteById          : <==    Updates: 1
+2019-09-16 11:59:07.048 DEBUG 4396 --- [http-nio-7000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:59:07.049 DEBUG 4396 --- [http-nio-7000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":"","msg":"成功"}]
+2019-09-16 11:59:07.050 DEBUG 4396 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:59:10.633 DEBUG 4396 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : DELETE "/fileCloud/file/delById/177", parameters={}
+2019-09-16 11:59:10.634 DEBUG 4396 --- [http-nio-7000-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.lang.String> com.sinothk.cloud.file.controller.FileController.delById(java.lang.String,java.lang.String)
+2019-09-16 11:59:10.637 DEBUG 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectById          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:10.637 DEBUG 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectById          : ==> Parameters: 177(String)
+2019-09-16 11:59:10.638 TRACE 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectById          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 11:59:10.638 TRACE 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectById          : <==        Row: 177, 0obfdzww, file_avatar, liangyt, image, TCPUDPDebug102_Setup_1568604120306.exe, liangyt/image/201909/TCPUDPDebug102_Setup_1568604120306.exe, 1885768, 2019-09-16 11:22:00, null
+2019-09-16 11:59:10.639 DEBUG 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectById          : <==      Total: 1
+2019-09-16 11:59:10.640 DEBUG 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.deleteById          : ==>  Preparing: DELETE FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:10.640 DEBUG 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.deleteById          : ==> Parameters: 177(String)
+2019-09-16 11:59:10.690 DEBUG 4396 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.deleteById          : <==    Updates: 1
+2019-09-16 11:59:10.691 DEBUG 4396 --- [http-nio-7000-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:59:10.692 DEBUG 4396 --- [http-nio-7000-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":"","msg":"成功"}]
+2019-09-16 11:59:10.693 DEBUG 4396 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 11:59:15.085 DEBUG 4396 --- [http-nio-7000-exec-5] o.s.web.servlet.DispatcherServlet        : DELETE "/fileCloud/file/delById/178", parameters={}
+2019-09-16 11:59:15.086 DEBUG 4396 --- [http-nio-7000-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.lang.String> com.sinothk.cloud.file.controller.FileController.delById(java.lang.String,java.lang.String)
+2019-09-16 11:59:15.091 DEBUG 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectById          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:15.091 DEBUG 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectById          : ==> Parameters: 178(String)
+2019-09-16 11:59:15.092 TRACE 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectById          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 11:59:15.093 TRACE 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectById          : <==        Row: 178, 45k56c7y, file_activities, liangyt, video, SSHSecureShellClient-3.2.9.exe, liangyt/video/201909/SSHSecureShellClient-3.2.9.exe, 5517312, 2019-09-16 11:23:03, null
+2019-09-16 11:59:15.093 DEBUG 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectById          : <==      Total: 1
+2019-09-16 11:59:15.094 DEBUG 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.deleteById          : ==>  Preparing: DELETE FROM tb_file_info WHERE id=? 
+2019-09-16 11:59:15.094 DEBUG 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.deleteById          : ==> Parameters: 178(String)
+2019-09-16 11:59:15.121 DEBUG 4396 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.deleteById          : <==    Updates: 1
+2019-09-16 11:59:15.123 DEBUG 4396 --- [http-nio-7000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 11:59:15.123 DEBUG 4396 --- [http-nio-7000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":"","msg":"成功"}]
+2019-09-16 11:59:15.124 DEBUG 4396 --- [http-nio-7000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 12:01:17.161  WARN 4396 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m14s736ms97µs157ns).
+2019-09-16 13:44:08.690  WARN 4396 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h41m21s537ms251µs781ns).
+2019-09-16 14:10:03.248  INFO 22292 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 22292 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 14:10:03.252  INFO 22292 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 14:10:04.505  INFO 22292 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46382a28] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 14:10:04.763  INFO 22292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 14:10:04.783  INFO 22292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 14:10:04.784  INFO 22292 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 14:10:04.792  INFO 22292 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 14:10:04.792  INFO 22292 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 14:10:04.792  INFO 22292 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 14:10:04.793  INFO 22292 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 14:10:05.824  INFO 22292 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 14:10:05.931  INFO 22292 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 14:10:05.932 DEBUG 22292 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 14:10:05.932  INFO 22292 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2592 ms
+2019-09-16 14:10:06.138  INFO 22292 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 14:10:06.253  INFO 22292 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 14:10:06.678 DEBUG 22292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2019-09-16 14:10:06.752  INFO 22292 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-16 14:10:06.795 DEBUG 22292 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-09-16 14:10:06.866  INFO 22292 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-16 14:10:06.908 DEBUG 22292 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-09-16 14:10:06.941 DEBUG 22292 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-09-16 14:10:06.949 DEBUG 22292 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-09-16 14:10:07.036  INFO 22292 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-16 14:10:07.053  INFO 22292 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-16 14:10:07.087  INFO 22292 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-16 14:10:07.284  INFO 22292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path '/fileCloud'
+2019-09-16 14:10:07.287  INFO 22292 --- [main] com.sinothk.cloud.FileCloudApplication   : Started FileCloudApplication in 4.503 seconds (JVM running for 5.514)
+2019-09-16 14:10:43.290  INFO 22292 --- [http-nio-7000-exec-1] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-16 14:10:43.291  INFO 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-16 14:10:43.291 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-09-16 14:10:43.300 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-09-16 14:10:43.301  INFO 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-09-16 14:10:43.313 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/swagger-resources", parameters={}
+2019-09-16 14:10:43.319 DEBUG 22292 --- [http-nio-7000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-09-16 14:10:43.342 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:10:43.343 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@78c4c89e]]
+2019-09-16 14:10:43.373 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:10:43.385 DEBUG 22292 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/v2/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3", parameters={masked}
+2019-09-16 14:10:43.508 DEBUG 22292 --- [http-nio-7000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:10:43.509 DEBUG 22292 --- [http-nio-7000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@3ea4ba5b]
+2019-09-16 14:10:43.511 DEBUG 22292 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:11:02.069 DEBUG 22292 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/webjars/bycdao-ui/images/api.ico", parameters={}
+2019-09-16 14:11:02.076 DEBUG 22292 --- [http-nio-7000-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-09-16 14:11:02.089 DEBUG 22292 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:11:13.657 DEBUG 22292 --- [http-nio-7000-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/addByLinux", parameters={masked}
+2019-09-16 14:11:13.662 DEBUG 22292 --- [http-nio-7000-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.addByLinux(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 14:11:14.156 DEBUG 22292 --- [http-nio-7000-exec-5] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 14:11:14.182 DEBUG 22292 --- [http-nio-7000-exec-5] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, 21iaB0QM(String), file_activities(String), liangyt(String), video(String), uiso9_cn_9.7.1.3519.exe(String), liangyt/video/201909/uiso9_cn_9.7.1.3519.exe(String), 2532176(Long), 2019-09-16 14:11:14.111(Timestamp)
+2019-09-16 14:11:14.208 DEBUG 22292 --- [http-nio-7000-exec-5] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 14:11:14.216 DEBUG 22292 --- [http-nio-7000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:11:14.293 DEBUG 22292 --- [http-nio-7000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"21iaB0QM","bizType":"file_activities","createTime":1568614274111,"file (truncated)...]
+2019-09-16 14:11:14.300 DEBUG 22292 --- [http-nio-7000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:11:59.080 DEBUG 22292 --- [http-nio-7000-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/addByLinux", parameters={masked}
+2019-09-16 14:11:59.081 DEBUG 22292 --- [http-nio-7000-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.addByLinux(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 14:11:59.088 DEBUG 22292 --- [http-nio-7000-exec-6] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 14:11:59.089 DEBUG 22292 --- [http-nio-7000-exec-6] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, aS3BgfpJ(String), file_activities(String), liangyt(String), video(String), uiso9_cn_9.7.1.3519.exe(String), liangyt/video/201909/uiso9_cn_9.7.1.3519.exe(String), 2532176(Long), 2019-09-16 14:11:59.086(Timestamp)
+2019-09-16 14:11:59.179 DEBUG 22292 --- [http-nio-7000-exec-6] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 14:11:59.181 DEBUG 22292 --- [http-nio-7000-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:11:59.183 DEBUG 22292 --- [http-nio-7000-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"aS3BgfpJ","bizType":"file_activities","createTime":1568614319086,"file (truncated)...]
+2019-09-16 14:11:59.186 DEBUG 22292 --- [http-nio-7000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:12:11.262 DEBUG 22292 --- [http-nio-7000-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/addByLinux", parameters={masked}
+2019-09-16 14:12:11.263 DEBUG 22292 --- [http-nio-7000-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.addByLinux(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 14:12:11.267 DEBUG 22292 --- [http-nio-7000-exec-7] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 14:12:11.268 DEBUG 22292 --- [http-nio-7000-exec-7] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, 1fdk3WxV(String), file_activities(String), liangyt(String), video(String), TCPUDPDebug102_Setup.exe(String), liangyt/video/201909/TCPUDPDebug102_Setup.exe(String), 1885768(Long), 2019-09-16 14:12:11.265(Timestamp)
+2019-09-16 14:12:11.351 DEBUG 22292 --- [http-nio-7000-exec-7] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 14:12:11.354 DEBUG 22292 --- [http-nio-7000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:12:11.355 DEBUG 22292 --- [http-nio-7000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"1fdk3WxV","bizType":"file_activities","createTime":1568614331265,"file (truncated)...]
+2019-09-16 14:12:11.357 DEBUG 22292 --- [http-nio-7000-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:12:48.136 DEBUG 22292 --- [http-nio-7000-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/liangyt/video/201909/TCPUDPDebug102_Setup.exe", parameters={}
+2019-09-16 14:12:48.137 DEBUG 22292 --- [http-nio-7000-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 14:12:48.700 DEBUG 22292 --- [http-nio-7000-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/liangyt/video/201909/TCPUDPDebug102_Setup.exe", parameters={}
+2019-09-16 14:12:48.706 DEBUG 22292 --- [http-nio-7000-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 14:12:48.753 DEBUG 22292 --- [http-nio-7000-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:12:51.484 DEBUG 22292 --- [http-nio-7000-exec-8] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+2019-09-16 14:13:12.506 DEBUG 22292 --- [http-nio-7000-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/fileCloud/file/addByLinux", parameters={masked}
+2019-09-16 14:13:12.507 DEBUG 22292 --- [http-nio-7000-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.addByLinux(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile[])
+2019-09-16 14:13:12.516 DEBUG 22292 --- [http-nio-7000-exec-10] c.s.c.file.repository.FileMapper.insert  : ==>  Preparing: INSERT INTO tb_file_info ( id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-16 14:13:12.517 DEBUG 22292 --- [http-nio-7000-exec-10] c.s.c.file.repository.FileMapper.insert  : ==> Parameters: null, jeUOKDCl(String), file_activities(String), liangyt(String), video(String), 搜狗截图19年09月09日1840_1.png(String), liangyt/video/201909/搜狗截图19年09月09日1840_1.png(String), 29486(Long), 2019-09-16 14:13:12.514(Timestamp)
+2019-09-16 14:13:12.618 DEBUG 22292 --- [http-nio-7000-exec-10] c.s.c.file.repository.FileMapper.insert  : <==    Updates: 1
+2019-09-16 14:13:12.619 DEBUG 22292 --- [http-nio-7000-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, text/plain, */*, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:13:12.619 DEBUG 22292 --- [http-nio-7000-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"jeUOKDCl","bizType":"file_activities","createTime":1568614392514,"file (truncated)...]
+2019-09-16 14:13:12.621 DEBUG 22292 --- [http-nio-7000-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:13:33.264 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/liangyt/video/201909/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE19%E5%B9%B409%E6%9C%8809%E6%97%A51840_1.png", parameters={}
+2019-09-16 14:13:33.265 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 14:13:33.267 DEBUG 22292 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:13:38.118 DEBUG 22292 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/liangyt/video/201909/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE19%E5%B9%B409%E6%9C%8809%E6%97%A51840_1.png", parameters={}
+2019-09-16 14:13:38.120 DEBUG 22292 --- [http-nio-7000-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 14:13:38.123 DEBUG 22292 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2019-09-16 14:13:38.566 DEBUG 22292 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/liangyt/video/201909/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE19%E5%B9%B409%E6%9C%8809%E6%97%A51840_1.png", parameters={}
+2019-09-16 14:13:38.568 DEBUG 22292 --- [http-nio-7000-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 14:13:38.569 DEBUG 22292 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2019-09-16 14:45:56.887  INFO 20600 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 20600 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 14:45:56.892  INFO 20600 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 14:45:58.122  INFO 20600 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d21b84ed] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 14:45:58.381  INFO 20600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 14:45:58.401  INFO 20600 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 14:45:58.402  INFO 20600 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 14:45:58.408  INFO 20600 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 14:45:58.408  INFO 20600 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 14:45:58.408  INFO 20600 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 14:45:58.409  INFO 20600 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 14:45:59.447  INFO 20600 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 14:45:59.554  INFO 20600 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 14:45:59.554 DEBUG 20600 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 14:45:59.555  INFO 20600 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2584 ms
+2019-09-16 14:45:59.768  INFO 20600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 14:45:59.882  INFO 20600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 14:46:00.310  WARN 20600 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentationPluginsBootstrapper' defined in URL [jar:file:/C:/Users/Administrator/.m2/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/DocumentationPluginsBootstrapper.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/C:/Users/Administrator/.m2/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'fileController' method 
+public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,int,int)
+to {GET /file/findFileByBizId}: There is already 'fileController' bean method
+public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,java.lang.String) mapped.
+2019-09-16 14:46:00.311  INFO 20600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-09-16 14:46:00.315  INFO 20600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-09-16 14:46:00.318  INFO 20600 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-09-16 14:46:00.330  INFO 20600 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-09-16 14:46:00.364 ERROR 20600 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentationPluginsBootstrapper' defined in URL [jar:file:/C:/Users/Administrator/.m2/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/DocumentationPluginsBootstrapper.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/C:/Users/Administrator/.m2/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'fileController' method 
+public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,int,int)
+to {GET /file/findFileByBizId}: There is already 'fileController' bean method
+public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,java.lang.String) mapped.
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.sinothk.cloud.FileCloudApplication.main(FileCloudApplication.java:17) [classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/C:/Users/Administrator/.m2/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'fileController' method 
+public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,int,int)
+to {GET /file/findFileByBizId}: There is already 'fileController' bean method
+public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,java.lang.String) mapped.
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1341) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1467) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1431) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1322) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1209) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'fileController' method 
+public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,int,int)
+to {GET /file/findFileByBizId}: There is already 'fileController' bean method
+public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,java.lang.String) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1467) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1431) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1322) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1209) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 36 common frames omitted
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'fileController' method 
+public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,int,int)
+to {GET /file/findFileByBizId}: There is already 'fileController' bean method
+public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,java.lang.String) mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.assertUniqueMethodMapping(AbstractHandlerMethodMapping.java:618) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:586) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:312) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:282) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684) ~[na:1.8.0_221]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:280) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:252) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:211) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:199) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:164) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 50 common frames omitted
+
+2019-09-16 14:47:55.169  INFO 21404 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 21404 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 14:47:55.173  INFO 21404 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 14:47:56.330  INFO 21404 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$67eda8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 14:47:56.589  INFO 21404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 14:47:56.609  INFO 21404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 14:47:56.610  INFO 21404 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 14:47:56.616  INFO 21404 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 14:47:56.616  INFO 21404 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 14:47:56.617  INFO 21404 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 14:47:56.617  INFO 21404 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 14:47:57.642  INFO 21404 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 14:47:57.773  INFO 21404 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 14:47:57.774 DEBUG 21404 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 14:47:57.774  INFO 21404 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2523 ms
+2019-09-16 14:47:57.963  INFO 21404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 14:47:58.090  INFO 21404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 14:47:58.560 DEBUG 21404 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-09-16 14:47:58.650  INFO 21404 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-16 14:47:58.700 DEBUG 21404 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-09-16 14:47:58.774  INFO 21404 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-16 14:47:58.819 DEBUG 21404 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-09-16 14:47:58.849 DEBUG 21404 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-09-16 14:47:58.858 DEBUG 21404 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-09-16 14:47:58.943  INFO 21404 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-16 14:47:58.959  INFO 21404 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-16 14:47:58.993  INFO 21404 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-16 14:47:59.219  INFO 21404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path '/fileCloud'
+2019-09-16 14:47:59.222  INFO 21404 --- [main] com.sinothk.cloud.FileCloudApplication   : Started FileCloudApplication in 4.515 seconds (JVM running for 5.528)
+2019-09-16 14:48:45.268  INFO 21404 --- [http-nio-7000-exec-1] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-16 14:48:45.269  INFO 21404 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-16 14:48:45.269 DEBUG 21404 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-09-16 14:48:45.278 DEBUG 21404 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-09-16 14:48:45.278  INFO 21404 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-09-16 14:48:45.288 DEBUG 21404 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/doc.html", parameters={}
+2019-09-16 14:48:45.296 DEBUG 21404 --- [http-nio-7000-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 14:48:45.307 DEBUG 21404 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2019-09-16 14:48:45.353 DEBUG 21404 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/webjars/bycdao-ui/images/api.ico", parameters={}
+2019-09-16 14:48:45.356 DEBUG 21404 --- [http-nio-7000-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-09-16 14:48:45.381 DEBUG 21404 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:48:45.502 DEBUG 21404 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/swagger-resources", parameters={}
+2019-09-16 14:48:45.505 DEBUG 21404 --- [http-nio-7000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-09-16 14:48:45.528 DEBUG 21404 --- [http-nio-7000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:48:45.529 DEBUG 21404 --- [http-nio-7000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@79b60d50]]
+2019-09-16 14:48:45.560 DEBUG 21404 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:48:45.568 DEBUG 21404 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/v2/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3", parameters={masked}
+2019-09-16 14:48:45.701 DEBUG 21404 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:48:45.702 DEBUG 21404 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@1d884ac9]
+2019-09-16 14:48:45.703 DEBUG 21404 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:49:26.417  INFO 22212 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 22212 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 14:49:26.421  INFO 22212 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 14:49:27.594  INFO 22212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$319d7548] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 14:49:27.848  INFO 22212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 14:49:27.869  INFO 22212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 14:49:27.869  INFO 22212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 14:49:27.875  INFO 22212 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 14:49:27.875  INFO 22212 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 14:49:27.876  INFO 22212 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 14:49:27.876  INFO 22212 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 14:49:28.907  INFO 22212 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 14:49:29.012  INFO 22212 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 14:49:29.012 DEBUG 22212 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 14:49:29.012  INFO 22212 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2515 ms
+2019-09-16 14:49:29.198  INFO 22212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 14:49:29.319  INFO 22212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 14:49:29.726 DEBUG 22212 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-09-16 14:49:29.818  INFO 22212 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-16 14:49:29.867 DEBUG 22212 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-09-16 14:49:29.937  INFO 22212 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-16 14:49:29.979 DEBUG 22212 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-09-16 14:49:30.011 DEBUG 22212 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-09-16 14:49:30.020 DEBUG 22212 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-09-16 14:49:30.103  INFO 22212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-16 14:49:30.119  INFO 22212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-16 14:49:30.151  INFO 22212 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-16 14:49:30.331  INFO 22212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path '/fileCloud'
+2019-09-16 14:49:30.348  INFO 22212 --- [main] com.sinothk.cloud.FileCloudApplication   : Started FileCloudApplication in 4.423 seconds (JVM running for 5.443)
+2019-09-16 14:49:39.708  INFO 22212 --- [http-nio-7000-exec-1] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-16 14:49:39.709  INFO 22212 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-16 14:49:39.709 DEBUG 22212 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-09-16 14:49:39.715 DEBUG 22212 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-09-16 14:49:39.717  INFO 22212 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-09-16 14:49:39.726 DEBUG 22212 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/doc.html", parameters={}
+2019-09-16 14:49:39.734 DEBUG 22212 --- [http-nio-7000-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["file:E:/SINOTHK/serverVMFiles/sinothk/living/", "/"]
+2019-09-16 14:49:39.769 DEBUG 22212 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2019-09-16 14:49:39.800 DEBUG 22212 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/webjars/bycdao-ui/images/api.ico", parameters={}
+2019-09-16 14:49:39.802 DEBUG 22212 --- [http-nio-7000-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-09-16 14:49:39.827 DEBUG 22212 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:49:40.005 DEBUG 22212 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/swagger-resources", parameters={}
+2019-09-16 14:49:40.006 DEBUG 22212 --- [http-nio-7000-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-09-16 14:49:40.031 DEBUG 22212 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:49:40.032 DEBUG 22212 --- [http-nio-7000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@31c6099f]]
+2019-09-16 14:49:40.057 DEBUG 22212 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:49:40.065 DEBUG 22212 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/v2/api-docs?group=%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3", parameters={masked}
+2019-09-16 14:49:40.181 DEBUG 22212 --- [http-nio-7000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:49:40.181 DEBUG 22212 --- [http-nio-7000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@ad636db]
+2019-09-16 14:49:40.182 DEBUG 22212 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:50:34.710 DEBUG 22212 --- [http-nio-7000-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByBizId?bizId=jeUOKDCl", parameters={masked}
+2019-09-16 14:50:34.710 DEBUG 22212 --- [http-nio-7000-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<java.util.ArrayList<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByBizId(java.lang.String,java.lang.String)
+2019-09-16 14:50:35.158 DEBUG 22212 --- [http-nio-7000-exec-6] c.s.c.f.r.FileMapper.selectList          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE biz_id = ? 
+2019-09-16 14:50:35.178 DEBUG 22212 --- [http-nio-7000-exec-6] c.s.c.f.r.FileMapper.selectList          : ==> Parameters: jeUOKDCl(String)
+2019-09-16 14:50:35.197 TRACE 22212 --- [http-nio-7000-exec-6] c.s.c.f.r.FileMapper.selectList          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 14:50:35.197 TRACE 22212 --- [http-nio-7000-exec-6] c.s.c.f.r.FileMapper.selectList          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 14:50:35.200 TRACE 22212 --- [http-nio-7000-exec-6] c.s.c.f.r.FileMapper.selectList          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 14:50:35.200 DEBUG 22212 --- [http-nio-7000-exec-6] c.s.c.f.r.FileMapper.selectList          : <==      Total: 2
+2019-09-16 14:50:35.201 DEBUG 22212 --- [http-nio-7000-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:50:35.267 DEBUG 22212 --- [http-nio-7000-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":[{"bizId":"jeUOKDCl","bizType":"file_activities","createTime":1568614331000,"file (truncated)...]
+2019-09-16 14:50:35.283 DEBUG 22212 --- [http-nio-7000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:51:26.356 DEBUG 22212 --- [http-nio-7000-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=20", parameters={masked}
+2019-09-16 14:51:26.357 DEBUG 22212 --- [http-nio-7000-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 14:51:26.367 DEBUG 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 14:51:26.368 DEBUG 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 14:51:26.369 TRACE 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 14:51:26.369 TRACE 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 179, 21iaB0QM, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:14, null
+2019-09-16 14:51:26.371 TRACE 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 14:51:26.371 TRACE 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 14:51:26.372 TRACE 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 14:51:26.372 DEBUG 22212 --- [http-nio-7000-exec-7] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 4
+2019-09-16 14:51:26.373 DEBUG 22212 --- [http-nio-7000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:51:26.381 DEBUG 22212 --- [http-nio-7000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":0,"records":[{"bizId":"21iaB0QM","bizType":"file_activities" (truncated)...]
+2019-09-16 14:51:26.386 DEBUG 22212 --- [http-nio-7000-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:51:38.949 DEBUG 22212 --- [http-nio-7000-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=2", parameters={masked}
+2019-09-16 14:51:38.950 DEBUG 22212 --- [http-nio-7000-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 14:51:38.955 DEBUG 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 14:51:38.956 DEBUG 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 14:51:38.957 TRACE 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 14:51:38.958 TRACE 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 179, 21iaB0QM, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:14, null
+2019-09-16 14:51:38.959 TRACE 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 14:51:38.960 TRACE 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 14:51:38.962 TRACE 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 14:51:38.963 DEBUG 22212 --- [http-nio-7000-exec-8] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 4
+2019-09-16 14:51:38.965 DEBUG 22212 --- [http-nio-7000-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:51:38.965 DEBUG 22212 --- [http-nio-7000-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":0,"records":[{"bizId":"21iaB0QM","bizType":"file_activities" (truncated)...]
+2019-09-16 14:51:38.966 DEBUG 22212 --- [http-nio-7000-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:52:54.192 DEBUG 22212 --- [http-nio-7000-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=2", parameters={masked}
+2019-09-16 14:52:54.193 DEBUG 22212 --- [http-nio-7000-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 14:52:54.199 DEBUG 22212 --- [http-nio-7000-exec-9] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 14:52:54.200 DEBUG 22212 --- [http-nio-7000-exec-9] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 14:52:54.201 TRACE 22212 --- [http-nio-7000-exec-9] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 14:52:54.202 TRACE 22212 --- [http-nio-7000-exec-9] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 14:52:54.203 TRACE 22212 --- [http-nio-7000-exec-9] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 14:52:54.204 TRACE 22212 --- [http-nio-7000-exec-9] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 14:52:54.205 DEBUG 22212 --- [http-nio-7000-exec-9] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 3
+2019-09-16 14:52:54.206 DEBUG 22212 --- [http-nio-7000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:52:54.207 DEBUG 22212 --- [http-nio-7000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":0,"records":[{"bizId":"aS3BgfpJ","bizType":"file_activities" (truncated)...]
+2019-09-16 14:52:54.208 DEBUG 22212 --- [http-nio-7000-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:54:48.881  INFO 22108 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 22108 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 14:54:48.884  INFO 22108 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 14:54:49.983  INFO 22108 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$90766e47] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 14:54:50.232  INFO 22108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 14:54:50.253  INFO 22108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 14:54:50.253  INFO 22108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 14:54:50.259  INFO 22108 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 14:54:50.259  INFO 22108 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 14:54:50.260  INFO 22108 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 14:54:50.260  INFO 22108 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 14:54:51.291  INFO 22108 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 14:54:51.395  INFO 22108 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 14:54:51.395 DEBUG 22108 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 14:54:51.395  INFO 22108 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2428 ms
+2019-09-16 14:54:51.584  INFO 22108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 14:54:51.708  INFO 22108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 14:54:52.140 DEBUG 22108 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-09-16 14:54:52.206  INFO 22108 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-16 14:54:52.246 DEBUG 22108 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-09-16 14:54:52.326  INFO 22108 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-16 14:54:52.367 DEBUG 22108 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-09-16 14:54:52.397 DEBUG 22108 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-09-16 14:54:52.405 DEBUG 22108 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-09-16 14:54:52.488  INFO 22108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-16 14:54:52.504  INFO 22108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-16 14:54:52.535  INFO 22108 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-16 14:54:52.734  INFO 22108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path '/fileCloud'
+2019-09-16 14:54:52.737  INFO 22108 --- [main] com.sinothk.cloud.FileCloudApplication   : Started FileCloudApplication in 4.365 seconds (JVM running for 5.343)
+2019-09-16 14:55:01.444  INFO 22108 --- [http-nio-7000-exec-1] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-16 14:55:01.444  INFO 22108 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-16 14:55:01.444 DEBUG 22108 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-09-16 14:55:01.453 DEBUG 22108 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-09-16 14:55:01.453  INFO 22108 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-09-16 14:55:01.462 DEBUG 22108 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=2", parameters={masked}
+2019-09-16 14:55:01.468 DEBUG 22108 --- [http-nio-7000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 14:55:01.977 DEBUG 22108 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 14:55:02.000 DEBUG 22108 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 14:55:02.020 TRACE 22108 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 14:55:02.021 TRACE 22108 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 14:55:02.024 TRACE 22108 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 14:55:02.024 TRACE 22108 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 14:55:02.025 DEBUG 22108 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 3
+2019-09-16 14:56:38.299  WARN 22108 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m46s490ms263µs78ns).
+2019-09-16 14:56:38.334 DEBUG 22108 --- [http-nio-7000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:56:38.392 DEBUG 22108 --- [http-nio-7000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":0,"records":[{"bizId":"aS3BgfpJ","bizType":"file_activities" (truncated)...]
+2019-09-16 14:56:38.416 DEBUG 22108 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 14:56:45.203 DEBUG 22108 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=1", parameters={masked}
+2019-09-16 14:56:45.204 DEBUG 22108 --- [http-nio-7000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 14:56:45.210 DEBUG 22108 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 14:56:45.211 DEBUG 22108 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 14:56:45.213 TRACE 22108 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 14:56:45.213 TRACE 22108 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 14:56:45.214 TRACE 22108 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 14:56:45.215 TRACE 22108 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 14:56:45.216 DEBUG 22108 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 3
+2019-09-16 14:56:50.779 DEBUG 22108 --- [http-nio-7000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 14:56:50.780 DEBUG 22108 --- [http-nio-7000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":0,"records":[{"bizId":"aS3BgfpJ","bizType":"file_activities" (truncated)...]
+2019-09-16 14:56:50.781 DEBUG 22108 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 15:00:44.170  INFO 5184 --- [main] com.sinothk.cloud.FileCloudApplication   : Starting FileCloudApplication on PC-201809130123 with PID 5184 (F:\SINOTHK\IT\Workspace\Clouds\FileCloud\target\classes started by Administrator in F:\SINOTHK\IT\Workspace\Clouds\FileCloud)
+2019-09-16 15:00:44.175  INFO 5184 --- [main] com.sinothk.cloud.FileCloudApplication   : No active profile set, falling back to default profiles: default
+2019-09-16 15:00:45.452  INFO 5184 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$336545b0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-16 15:00:45.701  INFO 5184 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2019-09-16 15:00:45.720  INFO 5184 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-16 15:00:45.720  INFO 5184 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-16 15:00:45.720  INFO 5184 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-09-16 15:00:45.720  INFO 5184 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-09-16 15:00:45.720  INFO 5184 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-09-16 15:00:45.720  INFO 5184 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-09-16 15:00:46.751  INFO 5184 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-09-16 15:00:46.879  INFO 5184 --- [main] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring embedded WebApplicationContext
+2019-09-16 15:00:46.879 DEBUG 5184 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-09-16 15:00:46.879  INFO 5184 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2615 ms
+2019-09-16 15:00:47.179  INFO 5184 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-16 15:00:47.314  INFO 5184 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-16 15:00:47.770 DEBUG 5184 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-09-16 15:00:47.840  INFO 5184 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-16 15:00:47.884 DEBUG 5184 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-09-16 15:00:47.959  INFO 5184 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-16 15:00:48.002 DEBUG 5184 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-09-16 15:00:48.035 DEBUG 5184 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-09-16 15:00:48.043 DEBUG 5184 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-09-16 15:00:48.154  INFO 5184 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-16 15:00:48.171  INFO 5184 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-16 15:00:48.203  INFO 5184 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-16 15:00:48.403  INFO 5184 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path '/fileCloud'
+2019-09-16 15:00:48.406  INFO 5184 --- [main] com.sinothk.cloud.FileCloudApplication   : Started FileCloudApplication in 4.719 seconds (JVM running for 5.655)
+2019-09-16 15:01:01.115  INFO 5184 --- [http-nio-7000-exec-1] o.a.c.c.C.[.[localhost].[/fileCloud]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-16 15:01:01.115  INFO 5184 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-16 15:01:01.115 DEBUG 5184 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-09-16 15:01:01.126 DEBUG 5184 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-09-16 15:01:01.126  INFO 5184 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2019-09-16 15:01:01.136 DEBUG 5184 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=1", parameters={masked}
+2019-09-16 15:01:01.141 DEBUG 5184 --- [http-nio-7000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.core.metadata.IPage<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 15:01:01.689 DEBUG 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT COUNT(1) FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 15:01:01.711 DEBUG 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 15:01:01.732 TRACE 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: COUNT(1)
+2019-09-16 15:01:01.732 TRACE 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 3
+2019-09-16 15:01:01.738 DEBUG 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? LIMIT ?,? 
+2019-09-16 15:01:01.739 DEBUG 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String), 0(Long), 1(Long)
+2019-09-16 15:01:01.742 TRACE 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 15:01:01.743 TRACE 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 15:01:01.745 DEBUG 5184 --- [http-nio-7000-exec-1] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 1
+2019-09-16 15:01:14.595 DEBUG 5184 --- [http-nio-7000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 15:01:14.650 DEBUG 5184 --- [http-nio-7000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":3,"records":[{"bizId":"aS3BgfpJ","bizType":"file_activities" (truncated)...]
+2019-09-16 15:01:14.675 DEBUG 5184 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 15:01:32.551 DEBUG 5184 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=2", parameters={masked}
+2019-09-16 15:01:32.552 DEBUG 5184 --- [http-nio-7000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.core.metadata.IPage<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 15:01:32.560 DEBUG 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT COUNT(1) FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 15:01:32.561 DEBUG 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 15:01:32.562 TRACE 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: COUNT(1)
+2019-09-16 15:01:32.562 TRACE 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 3
+2019-09-16 15:01:32.563 DEBUG 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? LIMIT ?,? 
+2019-09-16 15:01:32.564 DEBUG 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String), 0(Long), 2(Long)
+2019-09-16 15:01:32.566 TRACE 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 15:01:32.567 TRACE 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 15:01:32.568 TRACE 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 15:01:32.569 DEBUG 5184 --- [http-nio-7000-exec-2] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 2
+2019-09-16 15:01:44.756 DEBUG 5184 --- [http-nio-7000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 15:01:44.757 DEBUG 5184 --- [http-nio-7000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":2,"records":[{"bizId":"aS3BgfpJ","bizType":"file_activities" (truncated)...]
+2019-09-16 15:01:44.759 DEBUG 5184 --- [http-nio-7000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 15:02:00.189 DEBUG 5184 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=2&pageSize=2", parameters={masked}
+2019-09-16 15:02:00.189 DEBUG 5184 --- [http-nio-7000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.core.metadata.IPage<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 15:02:00.197 DEBUG 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT COUNT(1) FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 15:02:00.197 DEBUG 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 15:02:00.198 TRACE 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: COUNT(1)
+2019-09-16 15:02:00.198 TRACE 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 3
+2019-09-16 15:02:00.199 DEBUG 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? LIMIT ?,? 
+2019-09-16 15:02:00.199 DEBUG 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String), 2(Long), 2(Long)
+2019-09-16 15:02:00.200 TRACE 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 15:02:00.201 TRACE 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 15:02:00.201 DEBUG 5184 --- [http-nio-7000-exec-3] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 1
+2019-09-16 15:02:00.202 DEBUG 5184 --- [http-nio-7000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 15:02:00.203 DEBUG 5184 --- [http-nio-7000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":2,"pages":2,"records":[{"bizId":"jeUOKDCl","bizType":"file_activities" (truncated)...]
+2019-09-16 15:02:00.203 DEBUG 5184 --- [http-nio-7000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 15:02:12.690 DEBUG 5184 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=1&pageSize=2", parameters={masked}
+2019-09-16 15:02:12.690 DEBUG 5184 --- [http-nio-7000-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.core.metadata.IPage<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 15:02:12.698 DEBUG 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT COUNT(1) FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 15:02:12.698 DEBUG 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 15:02:12.699 TRACE 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: COUNT(1)
+2019-09-16 15:02:12.699 TRACE 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 3
+2019-09-16 15:02:12.700 DEBUG 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? LIMIT ?,? 
+2019-09-16 15:02:12.701 DEBUG 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String), 0(Long), 2(Long)
+2019-09-16 15:02:12.703 TRACE 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 15:02:12.703 TRACE 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 180, aS3BgfpJ, file_activities, liangyt, video, uiso9_cn_9.7.1.3519.exe, liangyt/video/201909/uiso9_cn_9.7.1.3519.exe, 2532176, 2019-09-16 14:11:59, null
+2019-09-16 15:02:12.704 TRACE 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 181, jeUOKDCl, file_activities, liangyt, video, TCPUDPDebug102_Setup.exe, liangyt/video/201909/TCPUDPDebug102_Setup.exe, 1885768, 2019-09-16 14:12:11, null
+2019-09-16 15:02:12.705 DEBUG 5184 --- [http-nio-7000-exec-4] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 2
+2019-09-16 15:02:12.706 DEBUG 5184 --- [http-nio-7000-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 15:02:12.707 DEBUG 5184 --- [http-nio-7000-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":1,"pages":2,"records":[{"bizId":"aS3BgfpJ","bizType":"file_activities" (truncated)...]
+2019-09-16 15:02:12.708 DEBUG 5184 --- [http-nio-7000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-09-16 15:02:25.707 DEBUG 5184 --- [http-nio-7000-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/fileCloud/file/findFileByOwnerName?currPage=2&pageSize=2", parameters={masked}
+2019-09-16 15:02:25.707 DEBUG 5184 --- [http-nio-7000-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public com.sinothk.base.entity.ResultData<com.baomidou.mybatisplus.core.metadata.IPage<com.sinothk.cloud.file.domain.FileEntity>> com.sinothk.cloud.file.controller.FileController.findFileByOwnerName(java.lang.String,int,int)
+2019-09-16 15:02:25.713 DEBUG 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT COUNT(1) FROM tb_file_info WHERE owner_user = ? 
+2019-09-16 15:02:25.714 DEBUG 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String)
+2019-09-16 15:02:25.715 TRACE 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: COUNT(1)
+2019-09-16 15:02:25.715 TRACE 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 3
+2019-09-16 15:02:25.716 DEBUG 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : ==>  Preparing: SELECT id,biz_id,biz_type,owner_user,file_type,file_name,file_url,file_size,create_time,expired_time FROM tb_file_info WHERE owner_user = ? LIMIT ?,? 
+2019-09-16 15:02:25.716 DEBUG 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : ==> Parameters: liangyt(String), 2(Long), 2(Long)
+2019-09-16 15:02:25.718 TRACE 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : <==    Columns: id, biz_id, biz_type, owner_user, file_type, file_name, file_url, file_size, create_time, expired_time
+2019-09-16 15:02:25.719 TRACE 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : <==        Row: 182, jeUOKDCl, file_activities, liangyt, video, 搜狗截图19年09月09日1840_1.png, liangyt/video/201909/搜狗截图19年09月09日1840_1.png, 29486, 2019-09-16 14:13:13, null
+2019-09-16 15:02:25.719 DEBUG 5184 --- [http-nio-7000-exec-5] c.s.c.f.r.FileMapper.selectPage          : <==      Total: 1
+2019-09-16 15:02:25.721 DEBUG 5184 --- [http-nio-7000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-09-16 15:02:25.722 DEBUG 5184 --- [http-nio-7000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [{"code":200,"data":{"current":2,"pages":2,"records":[{"bizId":"jeUOKDCl","bizType":"file_activities" (truncated)...]
+2019-09-16 15:02:25.723 DEBUG 5184 --- [http-nio-7000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

@@ -1,6 +1,8 @@
 package com.sinothk.cloud.file.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.utils.IdUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
 import com.sinothk.cloud.file.domain.FileEntity;
@@ -14,6 +16,7 @@ import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service("fileService")
@@ -198,20 +201,33 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public ArrayList<FileEntity> findFielByBizId(String bizId) {
+    public ArrayList<FileEntity> findFileByBizId(String bizId) {
         try {
             QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
             queryWrapper.lambda().eq(FileEntity::getBizId, bizId);
-
-            ArrayList<FileEntity> fileList = (ArrayList<FileEntity>) fileMapper.selectList(queryWrapper);
-
-
-            return fileList;
+            return (ArrayList<FileEntity>) fileMapper.selectList(queryWrapper);
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();
             }
-            return null;
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public IPage<FileEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize) {
+        try {
+            Page<FileEntity> page = new Page<>(currPage, pageSize);
+
+            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.lambda().eq(FileEntity::getOwnerUser, ownerUser);
+
+            return fileMapper.selectPage(page, queryWrapper);
+        } catch (Exception e) {
+            if (serverConfig.isDebug()) {
+                e.printStackTrace();
+            }
+            return new Page<>(currPage, pageSize);
         }
     }
 }

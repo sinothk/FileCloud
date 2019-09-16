@@ -1,5 +1,7 @@
 package com.sinothk.cloud.file.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.base.utils.StringUtil;
 import com.sinothk.base.utils.TokenUtil;
@@ -117,17 +119,35 @@ public class FileController {
         }
     }
 
-//    @ApiOperation(value = "查找：业务文件", notes = "查找：业务文件")
-//    @GetMapping("/findFilesByFileCode")
-//    @TokenCheck
-//    public ResultData<List<FileEntity>> findFilesByFileCode(
-//            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
-//            , @RequestParam("fileCode") String fileCode) {
-//
-//        FileEntity fileEntity = new FileEntity();
-//        fileEntity.setFileCode(fileCode);
-//        fileEntity.setOwnerUser(JWTUtil.getUsername(token));
-//
-//        return fileService.findFileByFileCodeAndOwner(fileEntity);
-//    }
+    /**
+     * 查询单一业务所有文件数据
+     *
+     * @param token
+     * @param bizId
+     * @return
+     */
+    @ApiOperation(value = "查找：单一业务所有文件", notes = "查找：单一业务所有文件")
+    @GetMapping("/findFileByBizId")
+    @TokenCheck
+    public ResultData<ArrayList<FileEntity>> findFileByBizId(
+            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
+            , @RequestParam("bizId") String bizId) {
+
+        ArrayList<FileEntity> fileList = fileService.findFileByBizId(bizId);
+        return ResultData.success(fileList);
+    }
+
+    @ApiOperation(value = "查找：某用户所有文件", notes = "查找：某用户所有文件")
+    @GetMapping("/findFileByOwnerName")
+    @TokenCheck
+    public ResultData<IPage<FileEntity>> findFileByOwnerName(
+            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
+            @RequestParam("currPage") int currPage,
+            @RequestParam("pageSize") int pageSize) {
+        String ownerName = TokenUtil.getUserName(token);
+
+        IPage<FileEntity> fileList = fileService.findFileByOwnerUser(ownerName, currPage, pageSize);
+
+        return ResultData.success(fileList);
+    }
 }
