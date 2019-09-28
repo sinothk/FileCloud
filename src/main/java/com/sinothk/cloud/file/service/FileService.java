@@ -1,7 +1,6 @@
 package com.sinothk.cloud.file.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.cloud.file.domain.FileEntity;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,4 +19,6 @@ public interface FileService {
     ArrayList<FileEntity> findFileByBizId(String bizId);
 
     IPage<FileEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize);
+
+    ArrayList<FileEntity> saveIntoLinux(MultipartFile[] fileList, FileEntity fileEntity);
 }

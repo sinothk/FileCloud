@@ -21,6 +21,10 @@ public class FileEntity {
     @TableId(value = "id", type = IdType.INPUT)
     private Long id;
 
+    @ApiModelProperty(value = "AppID")
+    @TableField("app_id")
+    private String appId;
+
     @ApiModelProperty(value = "业务编码")
     @TableField("biz_id")
     private String bizId;

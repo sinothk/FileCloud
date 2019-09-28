@@ -61,6 +61,45 @@ public class FileController {
     @PostMapping("/addByLinux")
     @TokenCheck
     public ResultData<ArrayList<FileEntity>> addByLinux(
+            @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
+            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
+            @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,
+            @ApiParam(value = "文件类型", required = true) @RequestParam("fileType") String fileType,
+            @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
+        //http://192.168.124.12:10002/file/addByLinux
+        if (fileList == null || fileList.length == 0) {
+            return ResultData.error("文件对象不能为空");
+        }
+
+        if (StringUtil.isEmpty(bizType)) {
+            return ResultData.error("未填写文件业务类型");
+        }
+
+        if (StringUtil.isEmpty(appId)) {
+            return ResultData.error("appId不能为空");
+        }
+
+        String ownerName = TokenUtil.getUserName(token);
+
+        FileEntity fileEntity = new FileEntity();
+
+        fileEntity.setAppId(appId);
+        fileEntity.setOwnerUser(ownerName);
+        fileEntity.setFileType(fileType);
+        fileEntity.setBizType(bizType);
+
+        ArrayList<FileEntity> fileEntities = fileService.saveIntoLinux(fileList, fileEntity);
+        if (fileEntities == null) {
+            return ResultData.error("文件新增失败");
+        } else {
+            return ResultData.success(fileEntities);
+        }
+    }
+
+    @ApiOperation(value = "新增：保存文件到Linux", notes = "保存文件到Linux")
+    @PostMapping("/addByLinux")
+    @TokenCheck
+    public ResultData<ArrayList<FileEntity>> addByLinux(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,
             @ApiParam(value = "文件类型", required = true) @RequestParam("fileType") String fileType,
@@ -77,11 +116,12 @@ public class FileController {
         String ownerName = TokenUtil.getUserName(token);
 
         FileEntity fileEntity = new FileEntity();
+
         fileEntity.setOwnerUser(ownerName);
         fileEntity.setFileType(fileType);
         fileEntity.setBizType(bizType);
 
-        ArrayList<FileEntity> fileEntities = fileService.saveIntoLinux(fileList, fileEntity.getOwnerUser(), fileEntity.getFileType(), fileEntity.getBizType());
+        ArrayList<FileEntity> fileEntities = fileService.saveIntoLinux(fileList, fileEntity);
         if (fileEntities == null) {
             return ResultData.error("文件新增失败");
         } else {
