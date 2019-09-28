@@ -14,11 +14,9 @@ public interface FileService {
 
     ArrayList<FileEntity> saveIntoWin(MultipartFile[] files, String username, String fileType, String bizType);
 
-    ArrayList<FileEntity> saveIntoLinux(MultipartFile[] files, String username, String fileType, String bizType);
+    ArrayList<FileEntity> saveIntoLinux(MultipartFile[] files,String appId, String username, String fileType, String bizType);
 
     ArrayList<FileEntity> findFileByBizId(String bizId);
 
     IPage<FileEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize);
-
-    ArrayList<FileEntity> saveIntoLinux(MultipartFile[] fileList, FileEntity fileEntity);
 }
