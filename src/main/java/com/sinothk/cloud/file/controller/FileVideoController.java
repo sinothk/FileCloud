@@ -1,7 +1,6 @@
 package com.sinothk.cloud.file.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.base.utils.StringUtil;
 import com.sinothk.base.utils.TokenUtil;
@@ -17,52 +16,45 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 
-@Api(tags = "文件系统（通用文件相关）")
+@Api(tags = "文件系统（视频相关）")
 @RestController
-@RequestMapping("/file")
-public class FileController {
+@RequestMapping("/fileVideo")
+public class FileVideoController {
 
     @Resource(name = "fileService")
     private FileService fileService;
 
-    @ApiOperation(value = "新增：保存文件到Win", notes = "保存文件到Win")
-    @PostMapping("/add")
-    @TokenCheck
-    public ResultData<ArrayList<FileEntity>> add(
-            @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
-            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
-            @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,
-            @ApiParam(value = "文件类型", required = true) @RequestParam("fileType") String fileType,
-            @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
-        //http://192.168.124.12:10002/file/add
-        if (fileList == null || fileList.length == 0) {
-            return ResultData.error("文件对象不能为空");
-        }
-
-        if (StringUtil.isEmpty(bizType)) {
-            return ResultData.error("未填写文件业务类型");
-        }
-
-        if (StringUtil.isEmpty(appId)) {
-            return ResultData.error("appId不能为空");
-        }
-
-        String ownerName = TokenUtil.getUserName(token);
-
-        FileEntity fileEntity = new FileEntity();
-
-        fileEntity.setAppId(appId);
-        fileEntity.setOwnerUser(ownerName);
-        fileEntity.setFileType(fileType);
-        fileEntity.setBizType(bizType);
-
-        ArrayList<FileEntity> fileEntities = fileService.saveIntoWin(fileList, fileEntity.getAppId(), fileEntity.getOwnerUser(), fileEntity.getFileType(), fileEntity.getBizType());
-        if (fileEntities == null) {
-            return ResultData.error("文件新增失败");
-        } else {
-            return ResultData.success(fileEntities);
-        }
-    }
+//    @ApiOperation(value = "新增：保存文件到Win", notes = "保存文件到Win")
+//    @PostMapping("/add")
+//    @TokenCheck
+//    public ResultData<ArrayList<FileEntity>> add(
+//            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
+//            @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,
+//            @ApiParam(value = "文件类型", required = true) @RequestParam("fileType") String fileType,
+//            @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
+//        //http://192.168.124.12:10002/file/add
+//        if (fileList == null || fileList.length == 0) {
+//            return ResultData.error("文件对象不能为空");
+//        }
+//
+//        if (StringUtil.isEmpty(bizType)) {
+//            return ResultData.error("未填写文件业务类型");
+//        }
+//
+//        String ownerName = TokenUtil.getUserName(token);
+//
+//        FileEntity fileEntity = new FileEntity();
+//        fileEntity.setOwnerUser(ownerName);
+//        fileEntity.setFileType(fileType);
+//        fileEntity.setBizType(bizType);
+//
+//        ArrayList<FileEntity> fileEntities = fileService.saveIntoWin(fileList, fileEntity.getOwnerUser(), fileEntity.getFileType(), fileEntity.getBizType());
+//        if (fileEntities == null) {
+//            return ResultData.error("文件新增失败");
+//        } else {
+//            return ResultData.success(fileEntities);
+//        }
+//    }
 
     @ApiOperation(value = "新增：保存文件到Linux", notes = "保存文件到Linux")
     @PostMapping("/addByLinux")

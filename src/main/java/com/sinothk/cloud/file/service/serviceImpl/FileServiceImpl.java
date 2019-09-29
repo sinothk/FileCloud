@@ -101,7 +101,7 @@ public class FileServiceImpl implements FileService {
      * @return
      */
     @Override
-    public ArrayList<FileEntity> saveIntoWin(MultipartFile[] files, String username, String fileType, String bizType) {
+    public ArrayList<FileEntity> saveIntoWin(MultipartFile[] files,String appId, String username, String fileType, String bizType) {
         try {
             //
             ArrayList<FileEntity> fileEntities = new ArrayList<>();
@@ -111,7 +111,7 @@ public class FileServiceImpl implements FileService {
 
             for (MultipartFile multipartFile : files) {
                 // 新文件路径
-                String fileServerPath = username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
+                String fileServerPath = appId + "/" + username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
                 // 原文件名
                 String fileName = multipartFile.getOriginalFilename();
 
@@ -136,6 +136,8 @@ public class FileServiceImpl implements FileService {
                 fileEntity.setOwnerUser(username);
                 fileEntity.setFileType(fileType);
                 fileEntity.setBizType(bizType);
+                fileEntity.setAppId(appId);
+
                 fileMapper.insert(fileEntity);
 
                 fileEntities.add(fileEntity);

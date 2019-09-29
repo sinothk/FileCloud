@@ -21,6 +21,8 @@ public class FileCloudApplication  implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //  http://localhost:7000/fileCloud/doc.html
+        //  http://192.168.2.134:7000/fileCloud/doc.html
         registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
