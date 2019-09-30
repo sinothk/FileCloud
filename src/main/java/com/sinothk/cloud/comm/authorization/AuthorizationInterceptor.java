@@ -19,10 +19,8 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 //        System.out.println(TokenUtil.createToken(TokenUtil.EXPIRE_TIME_15D, "liangyt"));
 
         //设置跨域--开始
-        HttpServletResponse httpResponse = response;
-        HttpServletRequest httpRequest = request;
-        if (httpRequest.getMethod().equals(RequestMethod.OPTIONS.name())) {
-            setHeader(httpRequest, httpResponse);
+        if (request.getMethod().equals(RequestMethod.OPTIONS.name())) {
+            setHeader(request, response);
             return true;
         }
         //设置跨域--结束
