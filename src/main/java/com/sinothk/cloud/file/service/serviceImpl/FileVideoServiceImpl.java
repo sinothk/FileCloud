@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.utils.IdUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
-import com.sinothk.cloud.file.domain.FileEntity;
-import com.sinothk.cloud.file.repository.FileMapper;
+import com.sinothk.cloud.file.domain.FileVideoEntity;
+import com.sinothk.cloud.file.repository.FileVideoMapper;
 import com.sinothk.cloud.file.service.FileService;
 import com.sinothk.cloud.file.utils.FileManager;
 import org.springframework.stereotype.Service;
@@ -16,17 +16,15 @@ import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
-@Service("fileService")
-public class FileServiceImpl implements FileService {
+@Service("fileVideoService")
+public class FileVideoServiceImpl implements FileService {
 
     @Resource(name = "serverConfig")
     private ServerConfig serverConfig;
 
-    @Resource(name = "fileMapper")
-    private FileMapper fileMapper;
+    @Resource(name = "fileVideoMapper")
+    private FileVideoMapper fileMapper;
 
 //    /**
 //     * 获得业务文件
@@ -48,7 +46,7 @@ public class FileServiceImpl implements FileService {
     @Override
     public String delById(String id) {
         try {
-            FileEntity fileEntity = fileMapper.selectById(id);
+            FileVideoEntity fileEntity = fileMapper.selectById(id);
 
             // 删除表
             fileMapper.deleteById(id);
@@ -73,12 +71,12 @@ public class FileServiceImpl implements FileService {
     public String delByBizId(String bizId) {
 
         try {
-            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(FileEntity::getBizId, bizId);
+            QueryWrapper<FileVideoEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.lambda().eq(FileVideoEntity::getBizId, bizId);
 
-            ArrayList<FileEntity> fileList = (ArrayList<FileEntity>) fileMapper.selectList(queryWrapper);
+            ArrayList<FileVideoEntity> fileList = (ArrayList<FileVideoEntity>) fileMapper.selectList(queryWrapper);
 
-            for (FileEntity fileEntity : fileList) {
+            for (FileVideoEntity fileEntity : fileList) {
                 fileMapper.deleteById(fileEntity.getId());
                 FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileUrl());
             }
@@ -101,10 +99,10 @@ public class FileServiceImpl implements FileService {
      * @return
      */
     @Override
-    public ArrayList<FileEntity> saveIntoWin(MultipartFile[] files,String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileVideoEntity> saveIntoWin(MultipartFile[] files,String appId, String username, String fileType, String bizType) {
         try {
             //
-            ArrayList<FileEntity> fileEntities = new ArrayList<>();
+            ArrayList<FileVideoEntity> fileEntities = new ArrayList<>();
             // 保存
             Date currDate = new Date();
             String bizId = IdUtil.generateShortUuid();
@@ -127,7 +125,7 @@ public class FileServiceImpl implements FileService {
                 String fileUrl = fileServerPath + fileTempName;
 
                 // 保存到表
-                FileEntity fileEntity = new FileEntity();
+                FileVideoEntity fileEntity = new FileVideoEntity();
                 fileEntity.setBizId(bizId);
                 fileEntity.setFileName(fileTempName);
                 fileEntity.setFileUrl(fileUrl);
@@ -153,10 +151,10 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public ArrayList<FileEntity> saveIntoLinux(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileVideoEntity> saveIntoLinux(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
         try {
             //
-            ArrayList<FileEntity> fileEntities = new ArrayList<>();
+            ArrayList<FileVideoEntity> fileEntities = new ArrayList<>();
             // 保存
             Date currDate = new Date();
             String bizId = IdUtil.generateShortUuid();
@@ -179,7 +177,7 @@ public class FileServiceImpl implements FileService {
                 String fileUrl = fileServerPath + fileTempName;
 
                 // 保存到表
-                FileEntity fileEntity = new FileEntity();
+                FileVideoEntity fileEntity = new FileVideoEntity();
                 fileEntity.setBizId(bizId);
                 fileEntity.setFileName(fileTempName);
                 fileEntity.setFileUrl(fileUrl);
@@ -205,11 +203,11 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public ArrayList<FileEntity> findFileByBizId(String bizId) {
+    public ArrayList<FileVideoEntity> findFileByBizId(String bizId) {
         try {
-            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(FileEntity::getBizId, bizId);
-            return (ArrayList<FileEntity>) fileMapper.selectList(queryWrapper);
+            QueryWrapper<FileVideoEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.lambda().eq(FileVideoEntity::getBizId, bizId);
+            return (ArrayList<FileVideoEntity>) fileMapper.selectList(queryWrapper);
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();
@@ -219,12 +217,12 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public IPage<FileEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize) {
+    public IPage<FileVideoEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize) {
         try {
-            Page<FileEntity> page = new Page<>(currPage, pageSize);
+            Page<FileVideoEntity> page = new Page<>(currPage, pageSize);
 
-            QueryWrapper<FileEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(FileEntity::getOwnerUser, ownerUser);
+            QueryWrapper<FileVideoEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.lambda().eq(FileVideoEntity::getOwnerUser, ownerUser);
 
             return fileMapper.selectPage(page, queryWrapper);
         } catch (Exception e) {

@@ -16,7 +16,6 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        System.out.println(TokenUtil.createToken(TokenUtil.EXPIRE_TIME_15D, "liangyt"));
 
         //设置跨域--开始
         if (request.getMethod().equals(RequestMethod.OPTIONS.name())) {

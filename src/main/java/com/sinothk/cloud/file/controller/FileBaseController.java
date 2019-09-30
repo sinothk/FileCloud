@@ -1,38 +1,43 @@
 package com.sinothk.cloud.file.controller;
 
 import com.sinothk.base.entity.ResultData;
-import com.sinothk.cloud.comm.authorization.TokenCheck;
-import com.sinothk.cloud.file.domain.FileVideoEntity;
+import com.sinothk.base.utils.StringUtil;
+import com.sinothk.base.utils.TokenUtil;
 import com.sinothk.cloud.file.service.FileService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 
-@Api(tags = "文件管理：视频文件")
-@RestController
-@RequestMapping("/file/video")
-public class FileVideoController extends FileBaseController {
+public class FileBaseController<T> {
 
-    @Resource(name = "fileVideoService")
-    private FileService<FileVideoEntity> fileService;
+    private FileService fileService;
 
-    @ApiOperation(value = "新增：保存文件到Win", notes = "保存文件到Win")
-    @PostMapping("/add")
-    @TokenCheck
-    public ResultData<ArrayList<FileVideoEntity>> add(
-            @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
-            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
-            @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,
-            @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
-        //http://192.168.124.12:10002/file/add
+    void setService(FileService fileService) {
+        this.fileService = fileService;
+    }
 
-        setService(fileService);
-        return addFile(appId, token, bizType, "videos", fileList);
+    ResultData<ArrayList<T>> addFile(String appId, String token, String bizType, String fileType, MultipartFile[] fileList) {
+
+        if (fileList == null || fileList.length == 0) {
+            return ResultData.error("文件对象不能为空");
+        }
+
+        if (StringUtil.isEmpty(bizType)) {
+            return ResultData.error("未填写文件业务类型");
+        }
+
+        if (StringUtil.isEmpty(appId)) {
+            return ResultData.error("appId不能为空");
+        }
+
+        String ownerName = TokenUtil.getUserName(token);
+        ArrayList<T> fileEntities = fileService.saveIntoWin(fileList, appId, ownerName, fileType, bizType);
+
+        if (fileEntities == null) {
+            return ResultData.error("文件新增失败");
+        } else {
+            return ResultData.success(fileEntities);
+        }
     }
 
 //    @ApiOperation(value = "新增：保存文件到Linux", notes = "保存文件到Linux")

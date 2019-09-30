@@ -11,11 +11,9 @@ import lombok.ToString;
 
 import java.util.Date;
 
-@ApiModel(description = "用户信息")
 @Data
 @ToString
-@TableName(value = "tb_file_info")
-public class FileEntity {
+public class FileBaseEntity {
 
     @ApiModelProperty(value = "ID")
     @TableId(value = "id", type = IdType.INPUT)
