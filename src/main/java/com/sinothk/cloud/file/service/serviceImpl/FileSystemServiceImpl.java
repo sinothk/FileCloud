@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.utils.IdUtil;
+import com.sinothk.base.utils.StringUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
 import com.sinothk.cloud.file.controller.FileBaseController;
 import com.sinothk.cloud.file.domain.FileSystemEntity;
+import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.repository.FileSystemMapper;
 import com.sinothk.cloud.file.service.FileService;
 import com.sinothk.cloud.file.utils.FileManager;
@@ -222,14 +224,9 @@ public class FileSystemServiceImpl extends FileBaseController implements FileSer
     }
 
     @Override
-    public IPage<FileSystemEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize) {
+    public IPage<FileSystemEntity> findFileByOwnerUser(FileVo vo, int currPage, int pageSize) {
         try {
-            Page<FileSystemEntity> page = new Page<>(currPage, pageSize);
-
-            QueryWrapper<FileSystemEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(FileSystemEntity::getOwnerUser, ownerUser);
-
-            return fileMapper.selectPage(page, queryWrapper);
+            return fileMapper.selectFilePageList(new Page<>(currPage, pageSize), vo);
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();

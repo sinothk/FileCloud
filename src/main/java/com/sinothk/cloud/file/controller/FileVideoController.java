@@ -91,11 +91,12 @@ public class FileVideoController extends FileBaseController {
     @TokenCheck
     public ResultData findFileByOwnerName(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
+            @RequestParam("fileType") String fileType,
             @RequestParam("currPage") int currPage,
             @RequestParam("pageSize") int pageSize) {
 
         setService(fileService);
 
-        return findFileListByOwnerName(token, currPage, pageSize);
+        return findFileListByOwnerName(token, fileType, currPage, pageSize);
     }
 }

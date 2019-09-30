@@ -4,8 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.utils.IdUtil;
+import com.sinothk.base.utils.StringUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
+import com.sinothk.cloud.file.domain.FileBaseEntity;
 import com.sinothk.cloud.file.domain.FileBizEntity;
+import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.repository.FileBizMapper;
 import com.sinothk.cloud.file.service.FileService;
 import com.sinothk.cloud.file.utils.FileManager;
@@ -99,7 +102,7 @@ public class FileBizServiceImpl implements FileService {
      * @return
      */
     @Override
-    public ArrayList<FileBizEntity> saveIntoWin(MultipartFile[] files,String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileBizEntity> saveIntoWin(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
         try {
             //
             ArrayList<FileBizEntity> fileEntities = new ArrayList<>();
@@ -217,14 +220,9 @@ public class FileBizServiceImpl implements FileService {
     }
 
     @Override
-    public IPage<FileBizEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize) {
+    public IPage<FileBizEntity> findFileByOwnerUser(FileVo vo, int currPage, int pageSize) {
         try {
-            Page<FileBizEntity> page = new Page<>(currPage, pageSize);
-
-            QueryWrapper<FileBizEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(FileBizEntity::getOwnerUser, ownerUser);
-
-            return fileBizMapper.selectPage(page, queryWrapper);
+            return fileBizMapper.selectFilePageList(new Page<>(currPage, pageSize), vo);
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();

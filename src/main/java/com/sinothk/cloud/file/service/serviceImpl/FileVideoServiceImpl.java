@@ -4,8 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.utils.IdUtil;
+import com.sinothk.base.utils.StringUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
+import com.sinothk.cloud.file.domain.FileSystemEntity;
 import com.sinothk.cloud.file.domain.FileVideoEntity;
+import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.repository.FileVideoMapper;
 import com.sinothk.cloud.file.service.FileService;
 import com.sinothk.cloud.file.utils.FileManager;
@@ -217,14 +220,9 @@ public class FileVideoServiceImpl implements FileService {
     }
 
     @Override
-    public IPage<FileVideoEntity> findFileByOwnerUser(String ownerUser, int currPage, int pageSize) {
+    public IPage<FileVideoEntity> findFileByOwnerUser(FileVo vo, int currPage, int pageSize) {
         try {
-            Page<FileVideoEntity> page = new Page<>(currPage, pageSize);
-
-            QueryWrapper<FileVideoEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(FileVideoEntity::getOwnerUser, ownerUser);
-
-            return fileMapper.selectPage(page, queryWrapper);
+            return fileMapper.selectFilePageList(new Page<>(currPage, pageSize), vo);
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();

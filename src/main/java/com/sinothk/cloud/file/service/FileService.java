@@ -1,6 +1,7 @@
 package com.sinothk.cloud.file.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.sinothk.cloud.file.domain.FileVo;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
@@ -17,5 +18,5 @@ public interface FileService<T> {
 
     ArrayList<T> findFileByBizId(String bizId);
 
-    IPage<T> findFileByOwnerUser(String ownerUser, int currPage, int pageSize);
+    IPage<T> findFileByOwnerUser(FileVo vo, int currPage, int pageSize);
 }

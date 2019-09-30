@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.base.utils.StringUtil;
 import com.sinothk.base.utils.TokenUtil;
+import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.service.FileService;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -89,10 +90,13 @@ public class FileBaseController {
         return ResultData.success(fileList);
     }
 
-    ResultData findFileListByOwnerName(String token, int currPage, int pageSize) {
+    ResultData findFileListByOwnerName(String token, String fileType, int currPage, int pageSize) {
         String ownerName = TokenUtil.getUserName(token);
 
-        IPage fileList = fileService.findFileByOwnerUser(ownerName, currPage, pageSize);
+        FileVo vo = new FileVo();
+        vo.setOwnerUser(ownerName);
+        vo.setFileType(fileType);
+        IPage fileList = fileService.findFileByOwnerUser(vo, currPage, pageSize);
 
         return ResultData.success(fileList);
     }
