@@ -11,6 +11,7 @@ import com.sinothk.cloud.file.domain.FileVideoEntity;
 import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.repository.FileVideoMapper;
 import com.sinothk.cloud.file.service.FileService;
+import com.sinothk.cloud.file.utils.FfmpegUtil;
 import com.sinothk.cloud.file.utils.FileManager;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -102,7 +103,7 @@ public class FileVideoServiceImpl implements FileService {
      * @return
      */
     @Override
-    public ArrayList<FileVideoEntity> saveIntoWin(MultipartFile[] files,String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileVideoEntity> saveIntoWin(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
         try {
             //
             ArrayList<FileVideoEntity> fileEntities = new ArrayList<>();
@@ -142,6 +143,8 @@ public class FileVideoServiceImpl implements FileService {
                 fileMapper.insert(fileEntity);
 
                 fileEntities.add(fileEntity);
+
+                subLThreadWin(locFilePath + fileTempName, locFilePath + fileName + ".png");
             }
             return fileEntities;
 
@@ -151,6 +154,14 @@ public class FileVideoServiceImpl implements FileService {
             }
             return null;
         }
+    }
+
+    private void subLThreadWin(String filePath, String coverPath) {
+        if (filePath == null || coverPath == null) {
+
+        }
+
+        FfmpegUtil.processImg(filePath, "E:\\SINOTHK\\serverVMFiles\\comm\\utils\\ffmpeg.exe", coverPath);
     }
 
     @Override
@@ -195,7 +206,7 @@ public class FileVideoServiceImpl implements FileService {
 
                 fileEntities.add(fileEntity);
 
-                subLThread();
+                subLThreadLinux();
             }
             return fileEntities;
 
@@ -207,7 +218,7 @@ public class FileVideoServiceImpl implements FileService {
         }
     }
 
-    private void subLThread() {
+    private void subLThreadLinux() {
 
 
     }

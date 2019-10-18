@@ -35,6 +35,7 @@ public class FfmpegUtil {
      * @return
      */
     public static boolean processImg(String videoPath, String ffmpegPath, String imgPath) {
+
         File file = new File(videoPath);
         if (!file.exists()) {
             System.err.println("路径[" + videoPath + "]对应的视频文件不存在!");
@@ -48,11 +49,11 @@ public class FfmpegUtil {
         commands.add("-f");
         commands.add("image2");
         commands.add("-ss");
-        commands.add("0");//这个参数是设置截取视频多少秒时的画面
+        commands.add("3");//这个参数是设置截取视频多少秒时的画面
         //commands.add("-t");
         //commands.add("0.001");
-        commands.add("-s");
-        commands.add("700x525");
+//        commands.add("-s");
+//        commands.add("700x525");
         commands.add(imgPath);
         try {
             ProcessBuilder builder = new ProcessBuilder();
