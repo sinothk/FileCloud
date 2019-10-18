@@ -194,6 +194,8 @@ public class FileVideoServiceImpl implements FileService {
                 fileMapper.insert(fileEntity);
 
                 fileEntities.add(fileEntity);
+
+                subLThread();
             }
             return fileEntities;
 
@@ -203,6 +205,11 @@ public class FileVideoServiceImpl implements FileService {
             }
             return null;
         }
+    }
+
+    private void subLThread() {
+
+
     }
 
     @Override
