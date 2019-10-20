@@ -20,9 +20,9 @@ public class FfmpegUtil {
 //        if(ProjectConfig.ENV.equals(ProjectConfig.PROJECT_DEVLELOP)){//此处判断是否Windows，自己更改一下呗
 //            processImg(videoPath,ffmpegPath,coverPath);
 //        }else {
-//            String command = "/monchickey/ffmpeg/bin/./ffmpeg -ss 00:00:00 -i " + videoPath
-//                    + " -f image2 -y " + coverPath;
-//            processImgCmd(command);
+//        String command = "/monchickey/ffmpeg/bin/./ffmpeg -ss 00:00:00 -i " + videoPath
+//                + " -f image2 -y " + coverPath;
+//        processImgCmd(command);
 //        }
     }
 
@@ -34,7 +34,7 @@ public class FfmpegUtil {
      * @param imgPath    封面存放路径
      * @return
      */
-    public static boolean processImg(String videoPath, String ffmpegPath, String imgPath) {
+    public static boolean getImgInWin(String videoPath, String ffmpegPath, String imgPath) {
 
         File file = new File(videoPath);
         if (!file.exists()) {
@@ -70,12 +70,18 @@ public class FfmpegUtil {
     /**
      * FFmpeg截取视频封面Linux版本
      *
-     * @param command 执行cmd命令
+     * @param
      */
-    public static void processImgCmd(String command) {
+    public static void getImgInLinux(String videoPath, String ffmpegPath, String coverPath) {
         try {
+            String command = ffmpegPath   // "/monchickey/ffmpeg/bin/./ffmpeg"
+                    + " -ss 00:00:03 -i "
+                    + videoPath
+                    + " -f image2 -y "
+                    + coverPath;
+
             Runtime rt = Runtime.getRuntime();
-            Process proc = rt.exec(command);
+            Process proc = rt.exec(command); // 执行cmd命令
             InputStream stderr = proc.getErrorStream();
             InputStreamReader isr = new InputStreamReader(stderr);
             BufferedReader br = new BufferedReader(isr);

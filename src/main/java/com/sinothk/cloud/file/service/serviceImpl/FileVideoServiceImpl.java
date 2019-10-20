@@ -129,7 +129,7 @@ public class FileVideoServiceImpl implements FileService {
                 FileManager.getInstance().saveFileIntoWin(locFilePath, fileTempName, multipartFile);
 
                 // 保存封面：
-                String videoFileAllPath = locFilePath + fileTempName;
+                String videoLocFileAllPath = locFilePath + fileTempName;
 
                 String coverFileName = fileTempName + ".png";
                 String coverFileAllPath = locFilePath + coverFileName;
@@ -157,7 +157,7 @@ public class FileVideoServiceImpl implements FileService {
 
                 fileEntities.add(fileEntity);
 
-                saveVideoCoverFile(videoFileAllPath, coverFileAllPath);
+                saveVideoCoverFile(videoLocFileAllPath, coverFileAllPath);
             }
             return fileEntities;
 
@@ -176,7 +176,7 @@ public class FileVideoServiceImpl implements FileService {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            FfmpegUtil.processImg(videoFileAllPath, serverConfig.getFfmpegPath(), coverFileAllPath);
+            FfmpegUtil.getImgInWin(videoFileAllPath, serverConfig.getFfmpegPath(), coverFileAllPath);
         }).start();
     }
 
@@ -203,6 +203,14 @@ public class FileVideoServiceImpl implements FileService {
                 // 返回文件存储的磁盘路径
                 FileManager.getInstance().saveFileIntoLinux(locFilePath, fileTempName, multipartFile);
 
+                // 保存封面：
+                String videoLocFileAllPath = locFilePath + fileTempName;
+
+                String coverFileName = fileTempName + ".png";
+                String coverFileAllPath = locFilePath + coverFileName;
+
+                String dbCoverPath = fileServerPath + coverFileName;
+
                 // 保存文件访问相对地址
                 String fileUrl = fileServerPath + fileTempName;
 
@@ -218,11 +226,13 @@ public class FileVideoServiceImpl implements FileService {
                 fileEntity.setBizType(bizType);
                 fileEntity.setAppId(appId);
 
+                fileEntity.setFileCover(dbCoverPath);
+
                 fileMapper.insert(fileEntity);
 
                 fileEntities.add(fileEntity);
 
-                subLThreadLinux();
+                getVideoCoverFileInLinux(videoLocFileAllPath, coverFileAllPath);
             }
             return fileEntities;
 
@@ -234,9 +244,15 @@ public class FileVideoServiceImpl implements FileService {
         }
     }
 
-    private void subLThreadLinux() {
-
-
+    private void getVideoCoverFileInLinux(String videoFileAllPath, String coverFileAllPath) {
+        new Thread(() -> {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            FfmpegUtil.getImgInLinux(videoFileAllPath, serverConfig.getFfmpegPath(), coverFileAllPath);
+        }).start();
     }
 
     @Override
