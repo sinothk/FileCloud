@@ -14,6 +14,9 @@ public class ServerConfig {
     @Value("${config.virtualPath}")
     private String virtualPath;
 
+    @Value("${config.ffmpegPath}")
+    private String ffmpegPath;
+
     @Value("${config.isDebug}")
     private boolean isDebug;
 

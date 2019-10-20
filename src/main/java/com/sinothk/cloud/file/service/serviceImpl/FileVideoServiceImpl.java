@@ -117,13 +117,24 @@ public class FileVideoServiceImpl implements FileService {
                 // 原文件名
                 String fileName = multipartFile.getOriginalFilename();
 
-                // 保存到硬件
+                /*
+                 *  ============ 保存到硬件
+                 */
                 // 拼装相对地址
                 String locFilePath = serverConfig.getVirtualPath() + fileServerPath;
                 // 判断文件名,存在，则重新命名
                 String fileTempName = FileManager.getInstance().getFileName(locFilePath, fileName);
-                // 返回文件存储的磁盘路径
+
+                // 保存文件：文件存储的磁盘路径
                 FileManager.getInstance().saveFileIntoWin(locFilePath, fileTempName, multipartFile);
+
+                // 保存封面：
+                String videoFileAllPath = locFilePath + fileTempName;
+
+                String coverFileName = fileTempName + ".png";
+                String coverFileAllPath = locFilePath + coverFileName;
+
+                String dbCoverPath = fileServerPath + coverFileName;
 
                 // 保存文件访问相对地址
                 String fileUrl = fileServerPath + fileTempName;
@@ -140,11 +151,13 @@ public class FileVideoServiceImpl implements FileService {
                 fileEntity.setBizType(bizType);
                 fileEntity.setAppId(appId);
 
+                fileEntity.setFileCover(dbCoverPath);
+
                 fileMapper.insert(fileEntity);
 
                 fileEntities.add(fileEntity);
 
-                subLThreadWin(locFilePath + fileTempName, locFilePath + fileName + ".png");
+                saveVideoCoverFile(videoFileAllPath, coverFileAllPath);
             }
             return fileEntities;
 
@@ -156,12 +169,15 @@ public class FileVideoServiceImpl implements FileService {
         }
     }
 
-    private void subLThreadWin(String filePath, String coverPath) {
-        if (filePath == null || coverPath == null) {
-
-        }
-
-        FfmpegUtil.processImg(filePath, "E:\\SINOTHK\\serverVMFiles\\comm\\utils\\ffmpeg.exe", coverPath);
+    private void saveVideoCoverFile(String videoFileAllPath, String coverFileAllPath) {
+        new Thread(() -> {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            FfmpegUtil.processImg(videoFileAllPath, serverConfig.getFfmpegPath(), coverFileAllPath);
+        }).start();
     }
 
     @Override
