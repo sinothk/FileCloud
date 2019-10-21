@@ -4,9 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sinothk.base.utils.IdUtil;
-import com.sinothk.base.utils.StringUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
-import com.sinothk.cloud.file.domain.FileSystemEntity;
 import com.sinothk.cloud.file.domain.FileVideoEntity;
 import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.repository.FileVideoMapper;
@@ -30,17 +28,6 @@ public class FileVideoServiceImpl implements FileService {
     @Resource(name = "fileVideoMapper")
     private FileVideoMapper fileMapper;
 
-//    /**
-//     * 获得业务文件
-//     *
-//     * @param fileEntity
-//     * @return
-//     */
-//    @Override
-//    public ResultData<List<FileEntity>> findFileByFileCodeAndOwner(FileEntity fileEntity) {
-
-//    }
-
     /**
      * 删除文件：id
      *
@@ -50,19 +37,25 @@ public class FileVideoServiceImpl implements FileService {
     @Override
     public String delById(String id) {
         try {
-            FileVideoEntity fileEntity = fileMapper.selectById(id);
-
-            // 删除表
-            fileMapper.deleteById(id);
-            // 删除硬件
-            FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileUrl());
-            return "";
+            return delFile(fileMapper.selectById(id));
         } catch (Exception e) {
             if (serverConfig.isDebug()) {
                 e.printStackTrace();
             }
             return e.getMessage();
         }
+    }
+
+    private String delFile(FileVideoEntity fileEntity) {
+        if (fileEntity == null) {
+            return "没有相应数据";
+        }
+        // 删除表
+        fileMapper.deleteById(fileEntity.getId());
+        // 删除硬件
+        FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileUrl());
+        FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileCover());
+        return "删除成功";
     }
 
     /**
@@ -73,16 +66,23 @@ public class FileVideoServiceImpl implements FileService {
      */
     @Override
     public String delByBizId(String bizId) {
-
         try {
             QueryWrapper<FileVideoEntity> queryWrapper = new QueryWrapper<>();
             queryWrapper.lambda().eq(FileVideoEntity::getBizId, bizId);
 
             ArrayList<FileVideoEntity> fileList = (ArrayList<FileVideoEntity>) fileMapper.selectList(queryWrapper);
 
+            if (fileList == null || fileList.size() == 0) {
+                return "没有相应数据";
+            }
+
             for (FileVideoEntity fileEntity : fileList) {
-                fileMapper.deleteById(fileEntity.getId());
-                FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileUrl());
+//                // 删除表
+//                fileMapper.deleteById(fileEntity.getId());
+//                // 删除硬件
+//                FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileUrl());
+//                FileManager.getInstance().delFile(serverConfig.getVirtualPath() + fileEntity.getFileCover());
+                return delFile(fileEntity);
             }
             return "";
         } catch (Exception e) {

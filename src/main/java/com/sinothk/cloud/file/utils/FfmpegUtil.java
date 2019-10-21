@@ -1,5 +1,7 @@
 package com.sinothk.cloud.file.utils;
 
+import org.apache.oro.text.regex.*;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
@@ -34,12 +36,12 @@ public class FfmpegUtil {
      * @param imgPath    封面存放路径
      * @return
      */
-    public static boolean getImgInWin(String videoPath, String ffmpegPath, String imgPath) {
+    public static void getImgInWin(String videoPath, String ffmpegPath, String imgPath) {
 
         File file = new File(videoPath);
         if (!file.exists()) {
             System.err.println("路径[" + videoPath + "]对应的视频文件不存在!");
-            return false;
+            return;
         }
         List<String> commands = new ArrayList<String>();
         commands.add(ffmpegPath);
@@ -58,12 +60,17 @@ public class FfmpegUtil {
         try {
             ProcessBuilder builder = new ProcessBuilder();
             builder.command(commands);
-            builder.start();
+            Process processToExecute =  builder.start();
             System.out.println("截取成功");
-            return true;
+            try {
+                Thread.sleep(3000);
+                // 释放资源
+                processToExecute.destroy();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
     }
 

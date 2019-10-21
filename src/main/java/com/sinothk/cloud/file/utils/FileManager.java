@@ -106,9 +106,13 @@ public class FileManager {
      */
     public void delFile(String fileAllPath) {
         new Thread(() -> {
-            File file = new File(fileAllPath);
-            if (file.exists()) {
-                boolean del = file.delete();
+            try {
+                File file = new File(fileAllPath);
+                if (file.exists()) {
+                    boolean del = file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }).start();
     }
