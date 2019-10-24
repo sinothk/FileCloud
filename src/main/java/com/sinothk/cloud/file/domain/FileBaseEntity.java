@@ -32,8 +32,8 @@ public class FileBaseEntity {
     private String bizType;
 
     @ApiModelProperty(value = "上传用户")
-    @TableField("owner_user")
-    private String ownerUser;
+    @TableField("owner_account")
+    private String ownerAccount;
 
     /**
      * fileType：Img，Video

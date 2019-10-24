@@ -97,13 +97,13 @@ public class FileVideoServiceImpl implements FileService {
      * 保存文件到windows
      *
      * @param files
-     * @param username
+     * @param account
      * @param fileType
      * @param bizType
      * @return
      */
     @Override
-    public ArrayList<FileVideoEntity> saveIntoWin(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileVideoEntity> saveIntoWin(MultipartFile[] files, String appId, String account, String fileType, String bizType) {
         try {
             //
             ArrayList<FileVideoEntity> fileEntities = new ArrayList<>();
@@ -113,7 +113,7 @@ public class FileVideoServiceImpl implements FileService {
 
             for (MultipartFile multipartFile : files) {
                 // 新文件路径
-                String fileServerPath = appId + "/" + username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
+                String fileServerPath = appId + "/" + account + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
                 // 原文件名
                 String fileName = multipartFile.getOriginalFilename();
 
@@ -146,7 +146,7 @@ public class FileVideoServiceImpl implements FileService {
                 fileEntity.setFileUrl(fileUrl);
                 fileEntity.setFileSize(multipartFile.getSize());
                 fileEntity.setCreateTime(currDate);
-                fileEntity.setOwnerUser(username);
+                fileEntity.setOwnerAccount(account);
                 fileEntity.setFileType(fileType);
                 fileEntity.setBizType(bizType);
                 fileEntity.setAppId(appId);
@@ -181,7 +181,7 @@ public class FileVideoServiceImpl implements FileService {
     }
 
     @Override
-    public ArrayList<FileVideoEntity> saveIntoLinux(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileVideoEntity> saveIntoLinux(MultipartFile[] files, String appId, String account, String fileType, String bizType) {
         try {
             //
             ArrayList<FileVideoEntity> fileEntities = new ArrayList<>();
@@ -191,7 +191,7 @@ public class FileVideoServiceImpl implements FileService {
 
             for (MultipartFile multipartFile : files) {
                 // 新文件路径
-                String fileServerPath = appId + "/" + username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
+                String fileServerPath = appId + "/" + account + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
                 // 原文件名
                 String fileName = multipartFile.getOriginalFilename();
 
@@ -221,7 +221,7 @@ public class FileVideoServiceImpl implements FileService {
                 fileEntity.setFileUrl(fileUrl);
                 fileEntity.setFileSize(multipartFile.getSize());
                 fileEntity.setCreateTime(currDate);
-                fileEntity.setOwnerUser(username);
+                fileEntity.setOwnerAccount(account);
                 fileEntity.setFileType(fileType);
                 fileEntity.setBizType(bizType);
                 fileEntity.setAppId(appId);

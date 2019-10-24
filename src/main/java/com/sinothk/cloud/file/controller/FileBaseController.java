@@ -32,8 +32,8 @@ public class FileBaseController {
             return ResultData.error("appId不能为空");
         }
 
-        String ownerName = TokenUtil.getUserName(token);
-        ArrayList fileEntities = fileService.saveIntoWin(fileList, appId, ownerName, fileType, bizType);
+        String ownerAccount = TokenUtil.getTokenValue(token, "account");
+        ArrayList fileEntities = fileService.saveIntoWin(fileList, appId, ownerAccount, fileType, bizType);
 
         if (fileEntities == null) {
             return ResultData.error("文件新增失败");
@@ -56,9 +56,9 @@ public class FileBaseController {
             return ResultData.error("appId不能为空");
         }
 
-        String ownerName = TokenUtil.getUserName(token);
+        String ownerAccount = TokenUtil.getTokenValue(token, "account");
+        ArrayList fileEntities = fileService.saveIntoLinux(fileList, appId, ownerAccount, fileType, bizType);
 
-        ArrayList fileEntities = fileService.saveIntoLinux(fileList, appId, ownerName, fileType, bizType);
         if (fileEntities == null) {
             return ResultData.error("文件新增失败");
         } else {

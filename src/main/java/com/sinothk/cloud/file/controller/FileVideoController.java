@@ -42,11 +42,10 @@ public class FileVideoController extends FileBaseController {
             @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,
-            @ApiParam(value = "文件类型", required = true) @RequestParam("fileType") String fileType,
             @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
         //http://192.168.124.12:10002/file/addByLinux
         setService(fileService);
-        return addFileByLinux(appId, token, bizType, fileType, fileList);
+        return addFileByLinux(appId, token, bizType, "videos",  fileList);
     }
 
     @ApiOperation(value = "删除：根据Id删除文件", notes = "删除文件")

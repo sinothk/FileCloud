@@ -12,9 +12,9 @@ public interface FileService<T> {
 
     String delByBizId(String bizId);
 
-    ArrayList<T> saveIntoWin(MultipartFile[] files,String appId, String username, String fileType, String bizType);
+    ArrayList<T> saveIntoWin(MultipartFile[] files,String appId, String account, String fileType, String bizType);
 
-    ArrayList<T> saveIntoLinux(MultipartFile[] files,String appId, String username, String fileType, String bizType);
+    ArrayList<T> saveIntoLinux(MultipartFile[] files,String appId, String account, String fileType, String bizType);
 
     ArrayList<T> findFileByBizId(String bizId);
 

@@ -102,7 +102,7 @@ public class FileBizServiceImpl implements FileService {
      * @return
      */
     @Override
-    public ArrayList<FileBizEntity> saveIntoWin(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileBizEntity> saveIntoWin(MultipartFile[] files, String appId, String account, String fileType, String bizType) {
         try {
             //
             ArrayList<FileBizEntity> fileEntities = new ArrayList<>();
@@ -112,7 +112,7 @@ public class FileBizServiceImpl implements FileService {
 
             for (MultipartFile multipartFile : files) {
                 // 新文件路径
-                String fileServerPath = appId + "/" + username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
+                String fileServerPath = appId + "/" + account + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
                 // 原文件名
                 String fileName = multipartFile.getOriginalFilename();
 
@@ -134,7 +134,7 @@ public class FileBizServiceImpl implements FileService {
                 FileBizEntity.setFileUrl(fileUrl);
                 FileBizEntity.setFileSize(multipartFile.getSize());
                 FileBizEntity.setCreateTime(currDate);
-                FileBizEntity.setOwnerUser(username);
+                FileBizEntity.setOwnerAccount(account);
                 FileBizEntity.setFileType(fileType);
                 FileBizEntity.setBizType(bizType);
                 FileBizEntity.setAppId(appId);
@@ -154,7 +154,7 @@ public class FileBizServiceImpl implements FileService {
     }
 
     @Override
-    public ArrayList<FileBizEntity> saveIntoLinux(MultipartFile[] files, String appId, String username, String fileType, String bizType) {
+    public ArrayList<FileBizEntity> saveIntoLinux(MultipartFile[] files, String appId, String account, String fileType, String bizType) {
         try {
             //
             ArrayList<FileBizEntity> fileEntities = new ArrayList<>();
@@ -164,7 +164,7 @@ public class FileBizServiceImpl implements FileService {
 
             for (MultipartFile multipartFile : files) {
                 // 新文件路径
-                String fileServerPath = appId + "/" + username + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
+                String fileServerPath = appId + "/" + account + "/" + fileType + "/" + new SimpleDateFormat("yyyyMM").format(currDate) + "/";
                 // 原文件名
                 String fileName = multipartFile.getOriginalFilename();
 
@@ -186,7 +186,7 @@ public class FileBizServiceImpl implements FileService {
                 FileBizEntity.setFileUrl(fileUrl);
                 FileBizEntity.setFileSize(multipartFile.getSize());
                 FileBizEntity.setCreateTime(currDate);
-                FileBizEntity.setOwnerUser(username);
+                FileBizEntity.setOwnerAccount(account);
                 FileBizEntity.setFileType(fileType);
                 FileBizEntity.setBizType(bizType);
                 FileBizEntity.setAppId(appId);
