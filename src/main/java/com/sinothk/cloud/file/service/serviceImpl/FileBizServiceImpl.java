@@ -96,7 +96,7 @@ public class FileBizServiceImpl implements FileService {
      * 保存文件到windows
      *
      * @param files
-     * @param username
+     * @param account
      * @param fileType
      * @param bizType
      * @return
