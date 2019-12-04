@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 @Api(tags = "文件管理：系统文件")
 @RestController
-@RequestMapping("/file/config")
+@RequestMapping("/file/system")
 public class FileSystemController extends FileBaseController {
 
     @Resource(name = "fileSystemService")
