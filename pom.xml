@@ -103,6 +103,19 @@
             <artifactId>sinothk-base</artifactId>
             <version>2.19.1102</version>
         </dependency>
+
+        <!--网页配置-->
+        <!-- Thymeleaf 自动配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!-- 允许使用非严格的 HTML 语法 -->
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
     </dependencies>
 
     <build>
