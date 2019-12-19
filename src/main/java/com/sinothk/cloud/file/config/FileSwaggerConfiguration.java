@@ -21,7 +21,7 @@ public class FileSwaggerConfiguration {
     public Docket systemGroupRestApi() {
         // http://localhost:7000/fileCloud/doc.html
         ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("系统级别接口")
+                .title("文件系统接口")
                 .description("接口包括：文件管理！")
                 .termsOfServiceUrl("http://www.sinothk.com/")
                 .contact(new Contact("LiangYT", "", "381518188@qq.com"))
@@ -30,7 +30,7 @@ public class FileSwaggerConfiguration {
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo)
-                .groupName("系统接口")
+                .groupName("文件系统接口")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.sinothk.cloud.file.controller"))
                 .paths(PathSelectors.any())
