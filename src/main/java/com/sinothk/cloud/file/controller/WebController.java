@@ -15,4 +15,9 @@ public class WebController {
     public String muti_file() {
         return "addFiles";
     }
+
+    @RequestMapping("/protocol.sn")
+    public String protocol() {
+        return "protocol.html";
+    }
 }
