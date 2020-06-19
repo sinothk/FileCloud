@@ -3,6 +3,7 @@ package com.sinothk.cloud.file.service.serviceImpl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.sinothk.base.entity.PageData;
 import com.sinothk.base.utils.IdUtil;
 import com.sinothk.cloud.file.config.ServerConfig;
 import com.sinothk.cloud.file.domain.FileVideoEntity;
@@ -272,6 +273,14 @@ public class FileVideoServiceImpl implements FileService {
     @Override
     public IPage<FileVideoEntity> findFileByOwnerUser(FileVo vo, int currPage, int pageSize) {
         try {
+
+//            Page page = new Page<>(currPage, pageSize);
+//
+//            IPage<FileVideoEntity> pageResult = fileMapper.selectFilePageList(page, vo);
+//
+//            PageData pageData = new PageData();
+//            pageData.setHasNext(page.hasNext());
+
             return fileMapper.selectFilePageList(new Page<>(currPage, pageSize), vo);
         } catch (Exception e) {
             if (serverConfig.isDebug()) {

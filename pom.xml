@@ -101,7 +101,7 @@
         <dependency>
             <groupId>com.sinothk.base</groupId>
             <artifactId>sinothk-base</artifactId>
-            <version>2.19.1102</version>
+            <version>20.1.0619</version>
         </dependency>
 
         <!--网页配置-->

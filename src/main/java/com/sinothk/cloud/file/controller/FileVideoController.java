@@ -1,5 +1,6 @@
 package com.sinothk.cloud.file.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.cloud.comm.authorization.TokenCheck;
 import com.sinothk.cloud.file.domain.FileVideoEntity;
@@ -78,7 +79,7 @@ public class FileVideoController extends FileBaseController {
     @ApiOperation(value = "查找：单一业务所有文件", notes = "查找：单一业务所有文件")
     @GetMapping("/findFileByBizId")
     @TokenCheck
-    public ResultData findFileByBizId(
+    public ResultData<ArrayList<FileVideoEntity>> findFileByBizId(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @RequestParam("bizId") String bizId) {
         setService(fileService);
@@ -88,7 +89,7 @@ public class FileVideoController extends FileBaseController {
     @ApiOperation(value = "查找：某用户所有文件", notes = "查找：某用户所有文件")
     @GetMapping("/findFileByOwnerName")
     @TokenCheck
-    public ResultData findFileByOwnerName(
+    public ResultData<IPage<FileVideoEntity>> findFileByOwnerName(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @RequestParam("fileType") String fileType,
             @RequestParam("currPage") int currPage,

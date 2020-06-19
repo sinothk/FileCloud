@@ -1,7 +1,9 @@
 package com.sinothk.cloud.file.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.cloud.comm.authorization.TokenCheck;
+import com.sinothk.cloud.file.domain.FileBaseEntity;
 import com.sinothk.cloud.file.domain.FileBizEntity;
 import com.sinothk.cloud.file.service.FileService;
 import io.swagger.annotations.Api;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 @Api(tags = "文件管理：业务文件")
 @RestController
@@ -53,7 +56,7 @@ public class FileBizController extends FileBaseController {
     @ApiOperation(value = "删除：根据Id删除文件", notes = "删除文件")
     @DeleteMapping("/deleteById/{id}")
     @TokenCheck
-    public ResultData deleteById(
+    public ResultData<String> deleteById(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @PathVariable String id) {
         setService(fileService);
@@ -63,7 +66,7 @@ public class FileBizController extends FileBaseController {
     @ApiOperation(value = "删除：根据bizId删除文件", notes = "根据bizId删除文件")
     @DeleteMapping("/delByBizId")
     @TokenCheck
-    public ResultData deleteByBizId(
+    public ResultData<String> deleteByBizId(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @RequestParam("bizId") String bizId) {
         setService(fileService);
@@ -80,7 +83,7 @@ public class FileBizController extends FileBaseController {
     @ApiOperation(value = "查找：单一业务所有文件", notes = "查找：单一业务所有文件")
     @GetMapping("/findFileByBizId")
     @TokenCheck
-    public ResultData findFileByBizId(
+    public ResultData<ArrayList<FileBaseEntity>> findFileByBizId(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token
             , @RequestParam("bizId") String bizId) {
         setService(fileService);
@@ -90,7 +93,7 @@ public class FileBizController extends FileBaseController {
     @ApiOperation(value = "查找：某用户所有文件", notes = "查找：某用户所有文件")
     @GetMapping("/findFileByOwnerName")
     @TokenCheck
-    public ResultData findFileByOwnerName(
+    public ResultData<IPage<FileBizEntity>> findFileByOwnerName(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @RequestParam("fileType") String fileType,
             @RequestParam("currPage") int currPage,

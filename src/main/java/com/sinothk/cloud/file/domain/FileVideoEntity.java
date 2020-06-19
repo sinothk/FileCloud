@@ -13,7 +13,7 @@ import lombok.ToString;
 @TableName(value = "tb_file_video")
 public class FileVideoEntity extends FileBaseEntity {
 
-    @ApiModelProperty(value = "业务类型")
+    @ApiModelProperty(value = "视频封面")
     @TableField("file_cover")
     private String fileCover;
 }
