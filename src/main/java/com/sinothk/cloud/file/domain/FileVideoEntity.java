@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
-@ApiModel(description = "用户信息")
+@ApiModel(description = "视频信息")
 @Data
 @ToString
 @TableName(value = "tb_file_video")

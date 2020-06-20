@@ -94,10 +94,10 @@ public class FileBaseController {
 
     <T> ResultData<PageData<T>> findFileListByOwnerName(String token, String fileType, int currPage, int pageSize) {
 
-        String ownerName = TokenUtil.getUserName(token);
+        String ownerName = TokenUtil.getTokenValue(token, "account");
 
         FileVo vo = new FileVo();
-        vo.setOwnerUser(ownerName);
+        vo.setOwnerAccount(ownerName);
         vo.setFileType(fileType);
         IPage iPage = fileService.findFileByOwnerUser(vo, currPage, pageSize);
 

@@ -2,10 +2,12 @@ package com.sinothk.cloud.file.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.sinothk.base.entity.PageData;
+import com.sinothk.base.entity.PageVo;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.cloud.comm.authorization.TokenCheck;
 import com.sinothk.cloud.file.domain.FileBaseEntity;
 import com.sinothk.cloud.file.domain.FileBizEntity;
+import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -91,6 +93,7 @@ public class FileBizController extends FileBaseController {
         return findFilesByBizId(bizId);
     }
 
+    @Deprecated
     @ApiOperation(value = "查找：某用户所有文件", notes = "查找：某用户所有文件")
     @GetMapping("/findFileByOwnerName")
     @TokenCheck
@@ -102,5 +105,17 @@ public class FileBizController extends FileBaseController {
         setService(fileService);
 
         return findFileListByOwnerName(token, fileType, currPage, pageSize);
+    }
+
+    @ApiOperation(value = "查找分页：某用户所有文件", notes = "分页查找某用户所有文件")
+    @PostMapping("/findFilePageByOwnerName")
+    @TokenCheck
+    public ResultData<PageData<FileBizEntity>> findFilePageByOwnerName(
+            @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
+            @RequestBody PageVo<FileVo> pageVo) {
+
+        setService(fileService);
+
+        return findFileListByOwnerName(token, pageVo.getData().getFileType(), pageVo.getPageNum(), pageVo.getPageSize());
     }
 }
