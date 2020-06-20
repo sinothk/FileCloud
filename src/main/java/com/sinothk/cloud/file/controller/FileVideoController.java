@@ -1,6 +1,5 @@
 package com.sinothk.cloud.file.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.sinothk.base.entity.PageData;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.cloud.comm.authorization.TokenCheck;
