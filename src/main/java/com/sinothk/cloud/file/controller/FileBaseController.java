@@ -1,9 +1,11 @@
 package com.sinothk.cloud.file.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.sinothk.base.entity.PageData;
 import com.sinothk.base.entity.ResultData;
 import com.sinothk.base.utils.StringUtil;
 import com.sinothk.base.utils.TokenUtil;
+import com.sinothk.cloud.file.domain.FileVideoEntity;
 import com.sinothk.cloud.file.domain.FileVo;
 import com.sinothk.cloud.file.service.FileService;
 import org.springframework.web.multipart.MultipartFile;
@@ -90,14 +92,23 @@ public class FileBaseController {
         return ResultData.success(fileList);
     }
 
-    ResultData findFileListByOwnerName(String token, String fileType, int currPage, int pageSize) {
+    <T> ResultData<PageData<T>> findFileListByOwnerName(String token, String fileType, int currPage, int pageSize) {
+
         String ownerName = TokenUtil.getUserName(token);
 
         FileVo vo = new FileVo();
         vo.setOwnerUser(ownerName);
         vo.setFileType(fileType);
-        IPage fileList = fileService.findFileByOwnerUser(vo, currPage, pageSize);
+        IPage iPage = fileService.findFileByOwnerUser(vo, currPage, pageSize);
 
-        return ResultData.success(fileList);
+        // 构建返回集
+        PageData<T> pageData = new PageData<>();
+        pageData.setData(iPage.getRecords());
+        pageData.setPageSize(iPage.getSize());
+        pageData.setCurrent(iPage.getCurrent());
+        pageData.setTotal(iPage.getTotal());
+        pageData.setHasNext(iPage.getCurrent() * iPage.getSize() < iPage.getTotal());
+
+        return new ResultData<PageData<T>>().getSuccess(pageData);
     }
 }
