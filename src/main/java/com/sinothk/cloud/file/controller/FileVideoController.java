@@ -46,7 +46,7 @@ public class FileVideoController extends FileBaseController {
             @ApiParam(value = "文件对象列表", required = true) @RequestParam("files") MultipartFile[] fileList) {
         //http://192.168.124.12:10002/file/addByLinux
         setService(fileService);
-        return addFileByLinux(appId, token, bizType, "videos",  fileList);
+        return addFileByLinux(appId, token, bizType, "videos", fileList);
     }
 
     @ApiOperation(value = "删除：根据Id删除文件", notes = "删除文件")
@@ -92,8 +92,7 @@ public class FileVideoController extends FileBaseController {
     public ResultData<PageData<FileVideoEntity>> findFileByOwnerName(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @RequestParam("fileType") String fileType,
-            @RequestParam("currPage") int currPage,
-            @RequestParam("pageSize") int pageSize) {
+            @RequestParam("currPage") int currPage, @RequestParam("pageSize") int pageSize) {
 
         setService(fileService);
 

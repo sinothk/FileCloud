@@ -97,8 +97,7 @@ public class FileBizController extends FileBaseController {
     public ResultData<PageData<FileBizEntity>> findFileByOwnerName(
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @RequestParam("fileType") String fileType,
-            @RequestParam("currPage") int currPage,
-            @RequestParam("pageSize") int pageSize) {
+            @RequestParam("currPage") int currPage, @RequestParam("pageSize") int pageSize) {
 
         setService(fileService);
 
