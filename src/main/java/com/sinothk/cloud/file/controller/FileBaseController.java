@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 
-public class FileBaseController {
+public class FileBaseController<T> {
 
     private FileService fileService;
 
@@ -20,7 +20,7 @@ public class FileBaseController {
         this.fileService = fileService;
     }
 
-    ResultData<ArrayList> addFile(String appId, String token, String bizType, String fileType, MultipartFile[] fileList) {
+    ResultData<ArrayList<T>> addFile(String appId, String token, String bizType, String fileType, MultipartFile[] fileList) {
 
         if (fileList == null || fileList.length == 0) {
             return ResultData.error("文件对象不能为空");
@@ -35,7 +35,7 @@ public class FileBaseController {
         }
 
         String ownerAccount = TokenUtil.getTokenValue(token, "account");
-        ArrayList fileEntities = fileService.saveIntoWin(fileList, appId, ownerAccount, fileType, bizType);
+        ArrayList<T> fileEntities = fileService.saveIntoWin(fileList, appId, ownerAccount, fileType, bizType);
 
         if (fileEntities == null) {
             return ResultData.error("文件新增失败");

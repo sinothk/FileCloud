@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @Api(tags = "文件管理：系统文件")
 @RestController
 @RequestMapping("/file/system")
-public class FileSystemController extends FileBaseController {
+public class FileSystemController extends FileBaseController<FileSystemEntity> {
 
     @Resource(name = "fileSystemService")
     private FileService<FileSystemEntity> fileService;
@@ -25,7 +25,7 @@ public class FileSystemController extends FileBaseController {
     @ApiOperation(value = "新增：保存文件到Win", notes = "保存文件到Win")
     @PostMapping("/add")
     @TokenCheck
-    public ResultData<ArrayList> add(
+    public ResultData<ArrayList<FileSystemEntity>> add(
             @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,

@@ -1,6 +1,5 @@
 package com.sinothk.cloud.file.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.sinothk.base.entity.PageData;
 import com.sinothk.base.entity.PageVo;
 import com.sinothk.base.entity.ResultData;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 @Api(tags = "文件管理：业务文件")
 @RestController
 @RequestMapping("/file/biz")
-public class FileBizController extends FileBaseController {
+public class FileBizController extends FileBaseController<FileBizEntity> {
 
     @Resource(name = "fileBizService")
     private FileService<FileBizEntity> fileService;
@@ -30,7 +29,7 @@ public class FileBizController extends FileBaseController {
     @PostMapping("/add")
     @TokenCheck
     @CrossOrigin
-    public ResultData add(
+    public ResultData<ArrayList<FileBizEntity>> add(
             @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,

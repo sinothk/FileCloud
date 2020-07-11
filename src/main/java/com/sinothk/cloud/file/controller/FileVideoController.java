@@ -19,7 +19,7 @@ import java.util.ArrayList;
 @Api(tags = "文件管理：视频文件")
 @RestController
 @RequestMapping("/file/video")
-public class FileVideoController extends FileBaseController {
+public class FileVideoController extends FileBaseController<FileVideoEntity> {
 
     @Resource(name = "fileVideoService")
     private FileService<FileVideoEntity> fileService;
@@ -27,7 +27,7 @@ public class FileVideoController extends FileBaseController {
     @ApiOperation(value = "新增：保存文件到Win", notes = "保存文件到Win")
     @PostMapping("/add")
     @TokenCheck
-    public ResultData<ArrayList> add(
+    public ResultData<ArrayList<FileVideoEntity>> add(
             @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,
