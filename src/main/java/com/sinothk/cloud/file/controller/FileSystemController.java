@@ -41,7 +41,7 @@ public class FileSystemController extends FileBaseController<FileSystemEntity> {
     @ApiOperation(value = "新增：保存文件到Linux", notes = "保存文件到Linux")
     @PostMapping("/addByLinux")
     @TokenCheck
-    public ResultData addByLinux(
+    public ResultData<ArrayList<FileSystemEntity>> addByLinux(
             @ApiParam(value = "应用AppId", type = "header", required = true) @RequestHeader(value = "appId") String appId,
             @ApiParam(value = "验证Token", type = "header", required = true) @RequestHeader(value = "token") String token,
             @ApiParam(value = "业务类型", required = true) @RequestParam("bizType") String bizType,

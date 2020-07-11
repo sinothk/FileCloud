@@ -44,7 +44,7 @@ public class FileBaseController<T> {
         }
     }
 
-    ResultData addFileByLinux(String appId, String token, String bizType, String fileType, MultipartFile[] fileList) {
+    ResultData<ArrayList<T>> addFileByLinux(String appId, String token, String bizType, String fileType, MultipartFile[] fileList) {
         //http://192.168.124.12:10002/file/addByLinux
         if (fileList == null || fileList.length == 0) {
             return ResultData.error("文件对象不能为空");
@@ -59,7 +59,7 @@ public class FileBaseController<T> {
         }
 
         String ownerAccount = TokenUtil.getTokenValue(token, "account");
-        ArrayList fileEntities = fileService.saveIntoLinux(fileList, appId, ownerAccount, fileType, bizType);
+        ArrayList<T> fileEntities = fileService.saveIntoLinux(fileList, appId, ownerAccount, fileType, bizType);
 
         if (fileEntities == null) {
             return ResultData.error("文件新增失败");
