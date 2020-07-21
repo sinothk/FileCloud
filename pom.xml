@@ -18,6 +18,14 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <!--自定义lib-->
+            <id>jitpack.io</id>
+            <url>https://www.jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -98,10 +106,15 @@
         </dependency>
 
         <!--sinothk-base-->
+<!--        <dependency>-->
+<!--            <groupId>com.sinothk.base</groupId>-->
+<!--            <artifactId>sinothk-base</artifactId>-->
+<!--            <version>20.1.0715</version>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>com.sinothk.base</groupId>
+            <groupId>com.github.sinothk</groupId>
             <artifactId>sinothk-base</artifactId>
-            <version>20.1.0715</version>
+            <version>20.1.0721</version>
         </dependency>
 
         <!--网页配置-->
